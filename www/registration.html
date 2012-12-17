@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container">
+                <header class="masthead">
+                </header>
+            </div>
+            <div class="contain">
+                <div class="span8 offset2">
+                    <div class="hero-unit">
+                        <form class="form-horizontal" method="post" id="studreg">
+                            <h2>Registration</h2>
+                            <p>Please enter your details to register for notifications</p>
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-name">Name</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-name-1" name="name" type="text" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-surname">Surname</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-surname-1" name="surname" type="text" placeholder="Surname"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-number">Telephone</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-number-1" name="phoneNumber" type="text" placeholder="Phone Number"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-faculty">Faculty</label>
+                                    <div class="controls">
+                                        <select>
+                                            <option selected="selected" value="healthsc">Health Sciences</option>
+                                            <option value="humanities">Humanities</option>
+                                            <option value="commerce">Commerce, Law &amp; Management</option>
+                                            <option value="engineering">Engineering &amp; Built Environment</option>
+                                            <option value="science">Science</option>
+                                            <option value="sport">Sport</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="control-group pull-right">
+                                    <div class="controls form-inline">
+                                        <button class="btn btn-primary" type="submit" name="regButton">Register</button>
+                                        <button class="btn btn-inverse" type="submit" name="regButton">Cancel</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            $(function() { // wait for the DOM to be ready
+              $('#studreg').submit(function() { // bind function to submit event of form
+                var btnClicked = $("button[name=regButton]").val();
+                window.location.replace("progstat.html");
+//                               $.ajax({
+//                                      type: $(this).attr('method'), // get type of request from 'method'
+//                                      url: $(this).attr('action'), // get url of request from 'action'
+//                                      data: $(this).serialize(), // serialize the form's data
+//                                      success: function(responseText) {
+//                                      // if everything goes well, update the div with the response
+//                                      $('#result').html(responseText);
+//                                      },
+//                                      error: function() {alert("Failed!")}
+//                                      });
+                               return false; // important: prevent the form from submitting
+                               });
+              });
+        </script>
+    </body>
+</html>
