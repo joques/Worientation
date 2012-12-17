@@ -6,7 +6,7 @@ It has been implemented using [PhoneGap](http://phonegap.com) (cordova 2.2.0).
 
 # Installation
 
-Coming Soon
+The app will be downloadable from various app stores. Check this out later
 
 # How to run it?
 
