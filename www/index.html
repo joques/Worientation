@@ -36,7 +36,8 @@
                     <h3>2013</h3>
                     <p>Your journey to becoming a Witsie begins here...</p>
                     <div class="download-info">
-                        <a class="btn btn-primary btn-large" href="registration.html" title="Register">Register</a>
+                        <a class="btn btn-primary btn-large" style="display: none;" href="registration.html" title="Register" id="registerBtn">Register</a>
+                        <a class="btn btn-warning btn-large" style="display: none;" href="progstat.html" title="Programme" id="programmeBtn">Programme</a>
                     </div>
                 </header>
             </div>
@@ -46,19 +47,59 @@
                     <div class="row-fluid">
                         <div class="span6 small">
                             <a>
-                                <small>What is the orientation?</small>
+                                <small>Orientation! What's that?</small>
                             </a>
                             <p style="text-align: justify">
-                                You are about to embark on one of the most exciting and enjoyable phases of your life. To ensure your journey is a success, <b>Wits</b> has developed an orientation programme that features a variety of workshops and activities to address the needs of incoming students, including campus tours, meeting faculty and staff, numerous campus resource seminars and many fun events
+                                You are about to embark on one of the most exciting and enjoyable phases of your life. To ensure your journey is a success, <b>Wits</b> has developed an orientation programme for you (campus tours, meeting faculty and staff, numerous seminars, etc.)
                             </p>
                         </div>
                         <div class="span6 small">
                             <a>
-                                <small>Title2</small>
+                                <small>About your Wits Passport</small>
                             </a>
                             <p style="text-align: justify">
-                            We still have so much to say about Wits
+                            We have designed a programme to meet your specific needs. As such, it is in your best interest to attend the entire programme. Lookout for events and sessions that require you to get <strong>stamped</strong>. Participate in various activities and stand a chance to win a Prize.
                             </p>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 small">
+                            <a>
+                                <small>Welcome Day</small>
+                            </a>
+                            <p style="text-align: justify">
+                            Parents and students will get the opportunity to meet the <strong>Vice Chancellor</strong> and other members of the <strong>Senior Executive Team</strong>. They will also have the opportunity to engage with the <strong>Dean of Students</strong> and the <strong>SRC President</strong>
+                            </p>
+                        </div>
+                        <div class="span6 small">
+                            <a>
+                                <small>Student Representative Council</small>
+                            </a>
+                            <p style="text-align: justify">
+                                Short for <strong>SRC</strong>, this body represents students and defends their interests. As a student, SRC wants to get to know you. It cares about your concerns, queries and complaints. Visit SRC on the 2 nd floor at the Matrix. Your SRC cares...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12 small">
+                            <a>
+                                <small>Miscellaneous</small>
+                            </a>
+                            <dl>
+                                <dt>Food Fair</dt>
+                                <dd>Feb. 4th -- Feb. 8th 2013 12:30 - 14:30 Wits Science Stadium</dd>
+                                <dt>Rea Vaya Joburg</dt>
+                                <dd>Feb. 4th -- Feb. 8th 2013 12:30 - 14:30 Getting around the city</dd>
+                                <dt>Sport @ Wits</dt>
+                                <dd>Feb. 4th -- Feb. 8th 2013 Old Mutual Sports Hall</dd>
+                                <dt>Night of WLS (Science Stadium)</dt>
+                                <dd>
+                                    <strong>Street Party</strong>: Feb. 4th 18:00
+                                    <strong>RAG</strong>: Feb. 6th 18:30
+                                    <strong>Silly Burgers</strong>: Feb. 7th 18:30
+                                    <strong>Freshers' Bash</strong>: Feb. 8th 19:00
+                                </dd>
+                            </dl>
                         </div>
                     </div>
                 </div>
@@ -76,6 +117,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
+            window.localStorage.removeItem("login");
+            var loginVal = window.localStorage.getItem("login");
+            if (! loginVal) {
+                $('.download-info').find('#registerBtn').show();
+                $('.download-info').find('#programmeBtn').show();
+            } else {
+                $('.download-info').find('#programmeBtn').show();
+            }
         </script>
     </body>
 </html>

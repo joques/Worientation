@@ -54,9 +54,9 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="text-number">Telephone</label>
+                                    <label class="control-label" for="text-number">Student Number</label>
                                     <div class="controls">
-                                        <input class="span3" id="text-number-1" name="phoneNumber" type="text" placeholder="Phone Number"/>
+                                        <input class="span3" id="text-number-1" name="studentNumber" type="text" placeholder="Student Number"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -76,8 +76,8 @@
                             <fieldset>
                                 <div class="control-group pull-right">
                                     <div class="controls form-inline">
-                                        <button class="btn btn-primary" type="submit" name="regButton">Register</button>
-                                        <button class="btn btn-inverse" type="submit" name="regButton">Cancel</button>
+                                        <button class="btn btn-primary" type="submit" name="regButton" value="Register">Register</button>
+                                        <button class="btn btn-inverse" type="submit" name="regButton" value="Cancel">Cancel</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -97,22 +97,32 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            $(function() { // wait for the DOM to be ready
-              $('#studreg').submit(function() { // bind function to submit event of form
-                var btnClicked = $("button[name=regButton]").val();
-                window.location.replace("progstat.html");
-//                               $.ajax({
-//                                      type: $(this).attr('method'), // get type of request from 'method'
-//                                      url: $(this).attr('action'), // get url of request from 'action'
-//                                      data: $(this).serialize(), // serialize the form's data
-//                                      success: function(responseText) {
-//                                      // if everything goes well, update the div with the response
-//                                      $('#result').html(responseText);
-//                                      },
-//                                      error: function() {alert("Failed!")}
-//                                      });
-                               return false; // important: prevent the form from submitting
-                               });
+            //                               $.ajax({
+            //                                      type: $(this).attr('method'), // get type of request from 'method'
+            //                                      url: $(this).attr('action'), // get url of request from 'action'
+            //                                      data: $(this).serialize(), // serialize the form's data
+            //                                      success: function(responseText) {
+            //                                      // if everything goes well, update the div with the response
+            //                                      $('#result').html(responseText);
+            //                                      },
+            //                                      error: function() {alert("Failed!")}
+            //                                      });
+            $(function() {
+              var btnClicked = undefined;
+              $('#studreg').find("button[name=regButton]").click(function(evt) {
+                                                                 btnClicked = evt.target.value;
+                                                                 });
+              $('#studreg').submit(function(evt) {
+                                   if (btnClicked === "Register") {
+                                   window.localStorage.setItem("login", "Bon Jovi");
+//                                   the ajax call should go here
+                                   window.location.replace("progstat.html");
+                                   } else {
+//                                   window.localStorage.setItem("login", "Bon Jovi");
+                                   window.location.replace("index.html");
+                                   }
+                                   return false;
+                                   });
               });
         </script>
     </body>

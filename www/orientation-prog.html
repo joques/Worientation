@@ -32,24 +32,35 @@
         <div class="wrap">
             <div class="container" id="headProg">
                 <header class="hero-unit red-or">
-                    <h1 style="color: #ffffff; font-size: 45px;"> Orientation Programme 2013</h1>
+                    <h1 style="color: #ffffff; font-size: 45px;">Orientation Programme 2013</strong></h1>
                 </header>
             </div>
             <div class="container hidden-phone clearfix">
                 <div class="well">
-                    <p>Please select your faculty</p>
-                    <select class="span4" id="selFaculty">
-                        <option value="healthsc">Health Sciences</option>
-                        <option value="humanities">Humanities</option>
-                        <option value="commerce">Commerce, Law &amp; Management</option>
-                        <option value="engineering">Engineering &amp; Built Environment</option>
-                        <option value="science">Science</option>
-                        <option selected="selected" value="sport">Sport</option>
-                    </select>
                     <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
                 </div>
                 <div class="container">
-                    <div class="hero-unit" style="display: none;" id="facprog">
+                    <div class="hero-unit">
+                        <ul class="unstyled">
+                            <li>
+                                <a href="healthsc-prog.html">Health Science</a>
+                            </li>
+                            <li>
+                                <a href="healthsc-prog.html">Science</a>
+                            </li>
+                            <li>
+                                <a href="healthsc-prog.html">Humanities</a>
+                            </li>
+                            <li>
+                                <a href="healthsc-prog.html">Commerce, Law &amp; Management</a>
+                            </li>
+                            <li>
+                                <a href="healthsc-prog.html">Engineering &amp; Built Environment</a>
+                            </li>
+                            <li>
+                                <a href="healthsc-prog.html">Sport</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -75,18 +86,8 @@
             }
             document.addEventListener('DOMContentLoaded', loadScroll);
             $(function() { // wait for the DOM to be ready
-              $('#selFaculty').change(function() {
-                                      var facultyName = $('#selFaculty').val();
-                                      var progDetails = app.fillFacultyProgramme(facultyName);
-//                                      var myElem = $('#selFaculty').parent().siblings('.container').children();
-                                      var myElem = $('#facprog');
-                                      myElem.show();
-                                      myElem.empty();
-                                      myElem.append(progDetails);
-                                      scrollObj = new iScroll('facprog');
-                                      $("[rel=popover]").popover({placement: 'top', offset: 10});
-                                      });
+              $("[rel=popover]").popover({placement: 'bottom', offset: 10});
               });
-        </script>        
+            </script>
     </body>
 </html>

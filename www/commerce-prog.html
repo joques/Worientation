@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container" id="headProg">
+                <header class="hero-unit red-or">
+                    <h1 style="color: #ffffff; font-size: 45px;">Faculty of <strong>Commerce, Law &amp; Management </strong></h1>
+                </header>
+            </div>
+            <div class="container hidden-phone clearfix">
+                <div class="well">
+                    <a class="btn btn-link btn-large pull-left" href="orientation-prog.html">Orientation Programme</a>
+                    <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                </div>
+                <div class="container">
+                    <div class="hero-unit" id="comfacprog">
+                        <div class="scroller" id="compscroller">
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <caption>Saturday, 26 January 2013</caption>
+                                    <thead>
+                                        <th>Time</th>
+                                        <th>Event</th>
+                                        <th>Venue</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td>08:00-16:00</td>
+                                            <td><a class="progevt" rel="popover" data-content="Just get Enrolled">Student Enrollment</a></td>
+                                            <td>Enrollment Center</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <table class="table table-hover table-bordered">
+                                    <caption>Monday, 28 January 2013</caption>
+                                    <thead>
+                                        <th>Time</th>
+                                        <th>Event</th>
+                                        <th>Venue</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td>08:30-09:00</td>
+                                            <td><a class="progevt" rel="popover" data-content="This is an opportunity to meet academics, students and professionals in Helath Sciences to find out more about the different professions in health sciences">Overview of Professions in Health Sciences</a></td>
+                                            <td>Med School, Lecture Theatre 3</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>09:00-09:30</td>
+                                            <td><a class="progevt" rel="popover" data-content="Relationship between basic sciences and Professions">Relationship between basic sciences and professions</a></td>
+                                            <td>Med School, Lecture Theatre 3</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered" id="footProg">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="iscroll.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            var scrollObj;
+            function loadScroll() {
+                document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+                scrollObj = new iScroll('comfacprog', {checkDOMChanges: false});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+            $(function() { // wait for the DOM to be ready
+              $("[rel=popover]").popover({placement: 'top', offset: 10});
+              });
+            </script>
+    </body>
+</html>

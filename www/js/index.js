@@ -21,12 +21,14 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners
+    
+     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+//        window.localStorage.removeItem("login");
     },
     // deviceready Event Handler
     //
@@ -75,31 +77,479 @@ var app = {
     },
     
     generateHealthScienceProgramme: function() {
-        return this.generateProgramme("Health Sciences", null, null);
+        var healthScData = this.getHealthScienceProgrammeData();
+        return this.generateProgramme("Health Sciences", healthScData, "healthsc-prog.html");
+    },
+    
+    getHealthScienceProgrammeData: function() {
+        var healthScData = [
+        {
+                            eventDate: "2013/01/07",
+                            eventStart: "08:15",
+                            eventEnd: "09:30",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+        },
+
+        {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+        },
+        {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+        },
+        {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+        },
+        {
+                            eventDate: "2013/01/09",
+                            eventStart: "14:30",
+                            eventEnd: "16:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+        },
+        {
+                            eventDate: "2013/01/06",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+        },
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "08:15",
+                            eventEnd: "09:30",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/09",
+                            eventStart: "14:30",
+                            eventEnd: "16:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/06",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+        
+
+        ];
+        
+        return healthScData;
     },
     
     generateHumanitiesProgramme: function() {
-        return this.generateProgramme("Humanities", null, null);
+        var humanitiesData = this.getHumanitiesProgrammeData();
+        return this.generateProgramme("Humanities", humanitiesData, "humanities-prog.html");
+    },
+    
+    getHumanitiesProgrammeData: function() {
+        var humanitiesData = [
+                              {
+                              eventDate: "2013/01/07",
+                              eventStart: "08:15",
+                              eventEnd: "09:30",
+                              suffix: "AM",
+                              eventTitle: "Meeting with the Dean",
+                              eventDesc: "A desc goes here",
+                              eventVenue: "Great Hall"
+                              },
+                              
+                              {
+                              eventDate: "2013/01/07",
+                              eventStart: "10:30",
+                              eventEnd: "12:00",
+                              suffix: "AM",
+                              eventTitle: "Meeting with the Dean",
+                              eventDesc: "A desc goes here",
+                              eventVenue: "Great Hall"
+                              },
+                              {
+                              eventDate: "2013/01/07",
+                              eventStart: "10:30",
+                              eventEnd: "12:00",
+                              suffix: "PM",
+                              eventTitle: "A Career in Health Sciences",
+                              eventDesc: "Desc goes here",
+                              eventVenue: "Great Hall"
+                              },
+                              {
+                              eventDate: "2013/01/07",
+                              eventStart: "10:30",
+                              eventEnd: "12:00",
+                              suffix: "AM",
+                              eventTitle: "Meeting with Facluty",
+                              eventDesc: "A desc goes here",
+                              eventVenue: "Great Hall"
+                              },
+                              {
+                              eventDate: "2013/01/09",
+                              eventStart: "14:30",
+                              eventEnd: "16:00",
+                              suffix: "PM",
+                              eventTitle: "A Career in Health Sciences",
+                              eventDesc: "Desc goes here",
+                              eventVenue: "Great Hall"
+                              },
+                              {
+                              eventDate: "2013/01/06",
+                              eventStart: "10:30",
+                              eventEnd: "12:00",
+                              suffix: "AM",
+                              eventTitle: "Meeting with Facluty",
+                              eventDesc: "A desc goes here",
+                              eventVenue: "Great Hall"
+                              }
+                              
+                              ];
+
+        return humanitiesData;
     },
     
     generateCommerceProgramme: function() {
-        return this.generateProgramme("Commerce, Law &amp; Management", null, null);
+        var commerceData = this.getCommerceProgrammeData();
+        return this.generateProgramme("Commerce, Law &amp; Management", commerceData, "commerce-prog.html");
+    },
+    
+    getCommerceProgrammeData: function() {
+        var commerceData = [
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "08:15",
+                            eventEnd: "09:30",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with the Dean",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/07",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/09",
+                            eventStart: "14:30",
+                            eventEnd: "16:00",
+                            suffix: "PM",
+                            eventTitle: "A Career in Health Sciences",
+                            eventDesc: "Desc goes here",
+                            eventVenue: "Great Hall"
+                            },
+                            {
+                            eventDate: "2013/01/06",
+                            eventStart: "10:30",
+                            eventEnd: "12:00",
+                            suffix: "AM",
+                            eventTitle: "Meeting with Facluty",
+                            eventDesc: "A desc goes here",
+                            eventVenue: "Great Hall"
+                            }
+                            
+                            ];
+
+        return commerceData;
     },
     
     generateEngineeringProgramme: function() {
-        return this.generateProgramme("Engineering &amp; Built Environment", null, null);
+        var engineeringData = this.getEngineeringProgrammeData();
+        return this.generateProgramme("Engineering &amp; Built Environment", engineeringData, "engineering-prog.html");
+    },
+    
+    getEngineeringProgrammeData: function() {
+        var engineeringData = [
+                               {
+                               eventDate: "2013/01/07",
+                               eventStart: "08:15",
+                               eventEnd: "09:30",
+                               suffix: "AM",
+                               eventTitle: "Meeting with the Dean",
+                               eventDesc: "A desc goes here",
+                               eventVenue: "Great Hall"
+                               },
+                               
+                               {
+                               eventDate: "2013/01/07",
+                               eventStart: "10:30",
+                               eventEnd: "12:00",
+                               suffix: "AM",
+                               eventTitle: "Meeting with the Dean",
+                               eventDesc: "A desc goes here",
+                               eventVenue: "Great Hall"
+                               },
+                               {
+                               eventDate: "2013/01/07",
+                               eventStart: "10:30",
+                               eventEnd: "12:00",
+                               suffix: "PM",
+                               eventTitle: "A Career in Health Sciences",
+                               eventDesc: "Desc goes here",
+                               eventVenue: "Great Hall"
+                               },
+                               {
+                               eventDate: "2013/01/07",
+                               eventStart: "10:30",
+                               eventEnd: "12:00",
+                               suffix: "AM",
+                               eventTitle: "Meeting with Facluty",
+                               eventDesc: "A desc goes here",
+                               eventVenue: "Great Hall"
+                               },
+                               {
+                               eventDate: "2013/01/09",
+                               eventStart: "14:30",
+                               eventEnd: "16:00",
+                               suffix: "PM",
+                               eventTitle: "A Career in Health Sciences",
+                               eventDesc: "Desc goes here",
+                               eventVenue: "Great Hall"
+                               },
+                               {
+                               eventDate: "2013/01/06",
+                               eventStart: "10:30",
+                               eventEnd: "12:00",
+                               suffix: "AM",
+                               eventTitle: "Meeting with Facluty",
+                               eventDesc: "A desc goes here",
+                               eventVenue: "Great Hall"
+                               }
+                               
+                               ];
+
+        return engineeringData;
     },
     
     generateScienceProgramme: function() {
-        return this.generateProgramme("Science", null, null);
+        var scienceData = this.getScienceProgrammeData();
+        return this.generateProgramme("Science", scienceData, "science-prog.html");
+    },
+    
+    getScienceProgrammeData: function() {
+        var scienceData = [
+                           {
+                           eventDate: "2013/01/07",
+                           eventStart: "08:15",
+                           eventEnd: "09:30",
+                           suffix: "AM",
+                           eventTitle: "Meeting with the Dean",
+                           eventDesc: "A desc goes here",
+                           eventVenue: "Great Hall"
+                           },
+                           
+                           {
+                           eventDate: "2013/01/07",
+                           eventStart: "10:30",
+                           eventEnd: "12:00",
+                           suffix: "AM",
+                           eventTitle: "Meeting with the Dean",
+                           eventDesc: "A desc goes here",
+                           eventVenue: "Great Hall"
+                           },
+                           {
+                           eventDate: "2013/01/07",
+                           eventStart: "10:30",
+                           eventEnd: "12:00",
+                           suffix: "PM",
+                           eventTitle: "A Career in Health Sciences",
+                           eventDesc: "Desc goes here",
+                           eventVenue: "Great Hall"
+                           },
+                           {
+                           eventDate: "2013/01/07",
+                           eventStart: "10:30",
+                           eventEnd: "12:00",
+                           suffix: "AM",
+                           eventTitle: "Meeting with Facluty",
+                           eventDesc: "A desc goes here",
+                           eventVenue: "Great Hall"
+                           },
+                           {
+                           eventDate: "2013/01/09",
+                           eventStart: "14:30",
+                           eventEnd: "16:00",
+                           suffix: "PM",
+                           eventTitle: "A Career in Health Sciences",
+                           eventDesc: "Desc goes here",
+                           eventVenue: "Great Hall"
+                           },
+                           {
+                           eventDate: "2013/01/06",
+                           eventStart: "10:30",
+                           eventEnd: "12:00",
+                           suffix: "AM",
+                           eventTitle: "Meeting with Facluty",
+                           eventDesc: "A desc goes here",
+                           eventVenue: "Great Hall"
+                           }
+                           
+                           ];
+
+        return scienceData;
     },
     
     generateSportProgramme: function() {
-        return this.generateProgramme("Sport", null, null);
+        var sportData = this.getSportProgrammeData();
+        return this.generateProgramme("Sport", sportData, "sport-prog.html");
+    },
+    
+    getSportProgrammeData: function() {
+        var sportData = [
+                         {
+                         eventDate: "2013/01/07",
+                         eventStart: "08:15",
+                         eventEnd: "09:30",
+                         suffix: "AM",
+                         eventTitle: "Meeting with the Dean",
+                         eventDesc: "A desc goes here",
+                         eventVenue: "Great Hall"
+                         },
+                         
+                         {
+                         eventDate: "2013/01/07",
+                         eventStart: "10:30",
+                         eventEnd: "12:00",
+                         suffix: "AM",
+                         eventTitle: "Meeting with the Dean",
+                         eventDesc: "A desc goes here",
+                         eventVenue: "Great Hall"
+                         },
+                         {
+                         eventDate: "2013/01/07",
+                         eventStart: "10:30",
+                         eventEnd: "12:00",
+                         suffix: "PM",
+                         eventTitle: "A Career in Health Sciences",
+                         eventDesc: "Desc goes here",
+                         eventVenue: "Great Hall"
+                         },
+                         {
+                         eventDate: "2013/01/07",
+                         eventStart: "10:30",
+                         eventEnd: "12:00",
+                         suffix: "AM",
+                         eventTitle: "Meeting with Facluty",
+                         eventDesc: "A desc goes here",
+                         eventVenue: "Great Hall"
+                         },
+                         {
+                         eventDate: "2013/01/09",
+                         eventStart: "14:30",
+                         eventEnd: "16:00",
+                         suffix: "PM",
+                         eventTitle: "A Career in Health Sciences",
+                         eventDesc: "Desc goes here",
+                         eventVenue: "Great Hall"
+                         },
+                         {
+                         eventDate: "2013/01/06",
+                         eventStart: "10:30",
+                         eventEnd: "12:00",
+                         suffix: "AM",
+                         eventTitle: "Meeting with Facluty",
+                         eventDesc: "A desc goes here",
+                         eventVenue: "Great Hall"
+                         }
+                         
+                         ];
+        return sportData;
     },
     
     generateProgramme: function (facultyName, programmeData, linkToFac) {
-        var programmeStr = "<table class=\"table table-hover table-bordered\">";
+        var viewDate = new Date();
+        var curSuffix;
+        if (viewDate.getHours() >= 12) {
+            curSuffix = "PM";
+        } else {
+            curSuffix = "AM";
+        }
+        viewDate.setHours(0,0,0,0);
+        var programmeStr = "<div class=\"scroller\" id=\"pscroller\">";
+        programmeStr = programmeStr.concat("<table class=\"table table-hover table-bordered\">");
         programmeStr = programmeStr.concat("<caption>Faculty of <strong>" + facultyName + "</strong></caption>");
         programmeStr = programmeStr.concat("<thead>");
         programmeStr = programmeStr.concat("<tr>");
@@ -109,32 +559,74 @@ var app = {
         programmeStr = programmeStr.concat("</tr>");
         programmeStr = programmeStr.concat("</thead>");
         programmeStr = programmeStr.concat("<tbody>");
-        programmeStr = programmeStr.concat("<tr class=\"info\">");
-        programmeStr = programmeStr.concat("<td>10:00-12:30</td>");
-        programmeStr = programmeStr.concat("<td>Meeting with the Dean</td>");
-        programmeStr = programmeStr.concat("<td>Great Hall</td>");
-        programmeStr = programmeStr.concat("</tr>");
-        programmeStr = programmeStr.concat("<tr class=\"warning\">");
-        programmeStr = programmeStr.concat("<td>10:00-12:30</td>");
-        programmeStr = programmeStr.concat("<td>Meeting with the Dean</td>");
-        programmeStr = programmeStr.concat("<td>Great Hall</td>");
-        programmeStr = programmeStr.concat("</tr>");
-        programmeStr = programmeStr.concat("<tr class=\"info\">");
-        programmeStr = programmeStr.concat("<td>10:00-12:30</td>");
-        programmeStr = programmeStr.concat("<td>Meeting with the Dean</td>");
-        programmeStr = programmeStr.concat("<td>Great Hall</td>");
-        programmeStr = programmeStr.concat("</tr>");
-        programmeStr = programmeStr.concat("<tr class=\"warning\">");
-        programmeStr = programmeStr.concat("<td>10:00-12:30</td>");
-        programmeStr = programmeStr.concat("<td>Meeting with the Dean</td>");
-        programmeStr = programmeStr.concat("<td>Great Hall</td>");
-        programmeStr = programmeStr.concat("</tr>");
+        
+        var progTableContent;
+        if (curSuffix == "AM") {
+            progTableContent = this.generateProgTableAMContent(programmeData, viewDate);
+        } else {
+            progTableContent = this.generateProgTablePMContent(programmeData, viewDate);
+        }
+        
+        programmeStr = programmeStr.concat(progTableContent);
+        
         programmeStr = programmeStr.concat("</tbody>");
         programmeStr = programmeStr.concat("</table>");
         programmeStr = programmeStr.concat("<div>");
-        programmeStr = programmeStr.concat("<a href=\"#\" class=\"pull-left\">Faculty Programme</a>");
-        programmeStr = programmeStr.concat("<a href=\"#\" class=\"pull-right\">Orientation Programme</a>");
+        programmeStr = programmeStr.concat("<a href=" + linkToFac + " class=\"pull-left\">Faculty Programme</a>");
+        programmeStr = programmeStr.concat("<a href=\"orientation-prog.html\" class=\"pull-right\">Orientation Programme</a>");
         programmeStr = programmeStr.concat("</div>");
-        return programmeStr;    
+        programmeStr = programmeStr.concat("</div>");
+
+        return programmeStr;
+    },
+    
+    generateProgTablePMContent: function(programmeData, viewDate) {
+        var progTable = "";
+        
+        for (var i = 0; i < programmeData.length; i++) {
+            var curProg = programmeData[i];
+            var curDate = new Date(curProg.eventDate);
+            if ((curDate.getTime() != viewDate.getTime()) || (curProg.suffix != "PM")) {
+                continue;
+            } else {
+                if (i % 2 == 0) {
+                    progTable = progTable.concat("<tr class=\"info\">");
+                } else {
+                    progTable = progTable.concat("<tr class=\"warning\">");
+                }
+                progTable = progTable.concat("<td>" + curProg.eventStart + "-" + curProg.eventEnd + "</td>");
+                progTable = progTable.concat("<td><a class=\"progevt\" rel=popover data-content=" + curProg.eventDesc + ">" + curProg.eventTitle + "</a></td>");
+                progTable = progTable.concat("<td>" + curProg.eventVenue + "</td>");
+                
+                progTable = progTable.concat("</tr>")
+            }
+        }
+        
+        return progTable;
+    },
+    
+    generateProgTableAMContent: function(programmeData, viewDate){
+        var progTable = "";
+        
+        for (var i = 0; i < programmeData.length; i++) {
+            var curProg = programmeData[i];
+            var curDate = new Date(curProg.eventDate);
+            if (curDate.getTime() != viewDate.getTime()) {
+                continue;
+            } else {
+                if (i % 2 == 0) {
+                    progTable = progTable.concat("<tr class=\"info\">");
+                } else {
+                    progTable = progTable.concat("<tr class=\"warning\">");
+                }
+                progTable = progTable.concat("<td>" + curProg.eventStart + "-" + curProg.eventEnd + "</td>");
+                progTable = progTable.concat("<td><a class=\"progevt\" rel=popover data-content=\"" + curProg.eventDesc + "\">" + curProg.eventTitle + "</a></td>");
+                progTable = progTable.concat("<td>" + curProg.eventVenue + "</td>");
+            
+                progTable = progTable.concat("</tr>")
+            }
+        }
+        
+        return progTable;
     }
 };
