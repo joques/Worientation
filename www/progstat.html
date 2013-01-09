@@ -30,26 +30,31 @@
     </head>
     <body>
         <div class="wrap">
-            <div class="container" id="headProg">
-                <header class="hero-unit red-or">
-                    <h1 style="color: #ffffff; font-size: 45px;"> Orientation Programme 2013</h1>
+            <div class="container hidden-phone" id="headProg">
+                <header class="hero-unit hidden-phone red-or">
+                    <h1> Orientation Programme 2013</h1>
                 </header>
             </div>
-            <div class="container hidden-phone clearfix">
+            <div class="container clearfix">
+                <div class="row-fluid">
+                    <div class="btn-toolbar">
+                        <a class="btn btn-link btn-large pull-left" href="quick-notifications.html">Hot News</a>
+                        <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                    </div>
+                </div>
                 <div class="well">
-                    <p>Please select your faculty</p>
-                    <select class="span4" id="selFaculty">
+                    <select class="span6" id="selFaculty">
                         <option value="healthsc">Health Sciences</option>
                         <option value="humanities">Humanities</option>
                         <option value="commerce">Commerce, Law &amp; Management</option>
                         <option value="engineering">Engineering &amp; Built Environment</option>
                         <option value="science">Science</option>
-                        <option selected="selected" value="sport">Sport</option>
+                        <option value="sport">Sport</option>
+                        <option selected="selected" value="healthsc">Select your Programme</option>
                     </select>
-                    <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
                 </div>
                 <div class="container">
-                    <div class="hero-unit" style="display: none;" id="facprog">
+                    <div class="well" style="display: none;" id="facprog">
                     </div>
                 </div>
             </div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container">
+                <header class="masthead">
+                </header>
+            </div>
+            <div class="contain">
+                <div class="span8 offset2">
+                    <div class="hero-unit">
+                        <form class="form-horizontal" method="post" id="wsurvey">
+                            <h2>Survey</h2>
+                            <p>Let us know how you felt about the orientation</p>
+                            <div id="survey-step-1">
+                                <fieldset>
+                                    <legend>Your Details</legend>
+                                        <div class="control-group">
+                                        <label class="control-label" for="sex">Sex</label>
+                                        <div class="controls">
+                                            <select name="sex" id="stud-sex">
+                                                <option selected="selected" value="NA">I do not wish to specify</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="ageR">Age Range</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="ageR" id"ageR1" value="16-20" checked>16-20
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="ageR" id"ageR2" value="21-24">21-24
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="ageR" id"ageR3" value="25+">25+
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="nationality">Nationality</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="nationality" id"natSA" value="SA" checked>South African
+                                            </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="nationality" id"natOther" value="21-24">International
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="activity12">Activity 2012</label>
+                                        <div class="controls">
+                                            <select name="activity12" id="stud-act12" multiple="multiple">
+                                                <option selected="selected" value="School">School</option>
+                                                <option value="tertiary studies">Tertiary Studies</option>
+                                                <option value="traveling">Traveling</option>
+                                                <option value="working">Working</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part1But">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-2">
+                                <fieldset>
+                                    <legend>Your impressions of the activities</legend>
+                                </fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="regsmooth">Registration Smooth and hassle free</label>
+                                    <div class="controls">
+                                        <label class="radio inline">
+                                            <input type="radio" name="regsmooth" id"regsmooth0" value="poor" checked>Poor
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="regsmooth" id"regsmooth1" value="average">Average
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="regsmooth" id"regsmooth1" value="good">Good
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="regsmooth" id"regsmooth1" value="NA">Did not attend
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            //                               $.ajax({
+            //                                      type: $(this).attr('method'), // get type of request from 'method'
+            //                                      url: $(this).attr('action'), // get url of request from 'action'
+            //                                      data: $(this).serialize(), // serialize the form's data
+            //                                      success: function(responseText) {
+            //                                      // if everything goes well, update the div with the response
+            //                                      $('#result').html(responseText);
+            //                                      },
+            //                                      error: function() {alert("Failed!")}
+            //                                      });
+            $(function() {
+              var btnClicked = undefined;
+              $('#studreg').find("button[name=regButton]").click(function(evt) {
+                                                                 btnClicked = evt.target.value;
+                                                                 });
+              $('#studreg').submit(function(evt) {
+                                   if (btnClicked === "Register") {
+                                   window.localStorage.setItem("login", "Bon Jovi");
+                                   //                                   the ajax call should go here
+                                   window.location.replace("progstat.html");
+                                   } else {
+                                   window.location.replace("index.html");
+                                   }
+                                   return false;
+                                   });
+              });
+            </script>
+    </body>
+</html>

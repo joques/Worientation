@@ -68,7 +68,6 @@
                                             <option value="commerce">Commerce, Law &amp; Management</option>
                                             <option value="engineering">Engineering &amp; Built Environment</option>
                                             <option value="science">Science</option>
-                                            <option value="sport">Sport</option>
                                         </select>
                                     </div>
                                 </div>
@@ -114,12 +113,11 @@
                                                                  });
               $('#studreg').submit(function(evt) {
                                    if (btnClicked === "Register") {
-                                   window.localStorage.setItem("login", "Bon Jovi");
+                                    window.localStorage.setItem("login", "Bon Jovi");
 //                                   the ajax call should go here
-                                   window.location.replace("progstat.html");
+                                    window.location.replace("progstat.html");
                                    } else {
-//                                   window.localStorage.setItem("login", "Bon Jovi");
-                                   window.location.replace("index.html");
+                                    window.location.replace("index.html");
                                    }
                                    return false;
                                    });

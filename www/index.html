@@ -32,18 +32,39 @@
         <div class="wrap">
             <div class="container">
                 <header class="jumbotron masthead">
-                    <h2> Orientation &amp; Registration</h2>
-                    <h3>2013</h3>
-                    <p>Your journey to becoming a Witsie begins here...</p>
-                    <div class="download-info">
-                        <a class="btn btn-primary btn-large" style="display: none;" href="registration.html" title="Register" id="registerBtn">Register</a>
-                        <a class="btn btn-warning btn-large" style="display: none;" href="progstat.html" title="Programme" id="programmeBtn">Programme</a>
+                    <div class="hidden-phone">
+                        <img src="img/wits-logo.png" width=30 height=10/>
+                        <h2> Orientation &amp; Registration</h2>
+                        <h3>2013</h3>
+                        <p>Your journey to becoming a Witsie begins here...</p>
+                        <div class="download-info">
+                            <div class="btn-toolbar">
+                                <a class="btn btn-primary btn-large" style="display: none;" href="registration.html" title="Register" id="registerBtn">Register</a>
+                                <a class="btn btn-warning btn-large" style="display: none;" href="progstat.html" title="Programme" id="programmeBtn">Programme</a>
+                                <a class="btn btn-success btn-large" style="display: none;" href="survey.html" title="Survey" id="surveyBtn">Take a Survey</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-tablet">
+                        <h2>Orientation @ Wits</h2>
+                        <div class="download-info">
+                            <div class="btn-toolbar">
+                                <a class="btn btn-primary btn-large" style="display: none;" href="registration.html" title="Register" id="registerBtn">Register</a>
+                                <a class="btn btn-info btn-large" style="display: none;" href="progstat.html" title="Programme" id="programmeBtn">Programme</a>
+                            </div>
+                        </div>
                     </div>
                 </header>
             </div>
+            <div class="container hidden-tablet clearfix">
+                <p class="pagination-centered" style="margin-bottom: 40px;">Your journey to becoming a Witsie begins here...</p>
+                <div class="download-info pagination-centered">
+                    <a class="btn btn-success btn-large" style="display: none;" href="survey.html" title="Survey" id="surveyBtn">Take a Survey</a>
+                </div>
+            </div>
             <div class="container hidden-phone clearfix">
                 <div class="marketing">
-                    <h1>Orientation Week @ Wits University</h1>
+                    <h1>Orientation @ Wits University</h1>
                     <div class="row-fluid">
                         <div class="span6 small">
                             <a>
@@ -99,6 +120,8 @@
                                     <strong>Silly Burgers</strong>: Feb. 7th 18:30
                                     <strong>Freshers' Bash</strong>: Feb. 8th 19:00
                                 </dd>
+                                <dt>Credits</dt>
+                                <dd>School of Computer Science, University of the Witswatersrand</dd>
                             </dl>
                         </div>
                     </div>
@@ -108,8 +131,8 @@
         </div>
         <footer class="footer pagination-centered">
             <div class="container">
-                <p>Witsie 4 Life!</p>
-                <img src="img/wits-logo.png" width=30 height=30/>
+                <p class="pagination-centered">Witsie 4 Life!</p>
+                <p class="pull-left small hidden-tablet">Developed by the School of Computer Science, Uiniversity of the Witswatersrand</p>
             </div>
         </footer>
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
@@ -124,6 +147,13 @@
                 $('.download-info').find('#programmeBtn').show();
             } else {
                 $('.download-info').find('#programmeBtn').show();
+            }
+            var curDate = new Date();
+            curDate.setHours(0,0,0,0);
+            var surveyDateStr = "2013/01/09";
+            var surveyDate = new Date(surveyDateStr);
+            if (curDate.getTime() == surveyDate.getTime()) {
+                $('.download-info').find('#surveyBtn').show();
             }
         </script>
     </body>

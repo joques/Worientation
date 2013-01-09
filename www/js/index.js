@@ -84,26 +84,26 @@ var app = {
     getHealthScienceProgrammeData: function() {
         var healthScData = [
         {
-                            eventDate: "2013/01/07",
+                            eventDate: "2013/01/08",
                             eventStart: "08:15",
                             eventEnd: "09:30",
-                            suffix: "AM",
+                            suffix: "PM",
                             eventTitle: "Meeting with the Dean",
                             eventDesc: "A desc goes here",
                             eventVenue: "Great Hall"
         },
 
         {
-                            eventDate: "2013/01/07",
+                            eventDate: "2013/01/08",
                             eventStart: "10:30",
                             eventEnd: "12:00",
-                            suffix: "AM",
+                            suffix: "PM",
                             eventTitle: "Meeting with the Dean",
                             eventDesc: "A desc goes here",
                             eventVenue: "Great Hall"
         },
         {
-                            eventDate: "2013/01/07",
+                            eventDate: "2013/01/08",
                             eventStart: "10:30",
                             eventEnd: "12:00",
                             suffix: "PM",
@@ -112,7 +112,7 @@ var app = {
                             eventVenue: "Great Hall"
         },
         {
-                            eventDate: "2013/01/07",
+                            eventDate: "2013/01/08",
                             eventStart: "10:30",
                             eventEnd: "12:00",
                             suffix: "AM",
@@ -548,18 +548,7 @@ var app = {
             curSuffix = "AM";
         }
         viewDate.setHours(0,0,0,0);
-        var programmeStr = "<div class=\"scroller\" id=\"pscroller\">";
-        programmeStr = programmeStr.concat("<table class=\"table table-hover table-bordered\">");
-        programmeStr = programmeStr.concat("<caption>Faculty of <strong>" + facultyName + "</strong></caption>");
-        programmeStr = programmeStr.concat("<thead>");
-        programmeStr = programmeStr.concat("<tr>");
-        programmeStr = programmeStr.concat("<th>Time</th>");
-        programmeStr = programmeStr.concat("<th>Event</th>");
-        programmeStr = programmeStr.concat("<th>Venue</th>");
-        programmeStr = programmeStr.concat("</tr>");
-        programmeStr = programmeStr.concat("</thead>");
-        programmeStr = programmeStr.concat("<tbody>");
-        
+        var programmeStr = "";
         var progTableContent;
         if (curSuffix == "AM") {
             progTableContent = this.generateProgTableAMContent(programmeData, viewDate);
@@ -567,35 +556,68 @@ var app = {
             progTableContent = this.generateProgTablePMContent(programmeData, viewDate);
         }
         
-        programmeStr = programmeStr.concat(progTableContent);
+        programmeStr = programmeStr.concat("<div class=\"scroller\" id=\"pscroller\">");
+        programmeStr = programmeStr.concat("<div class=\"hidden-tablet\">");
+        programmeStr = programmeStr.concat("<a href=" + linkToFac + " class=\"pull-left\">Faculty Programme</a>");
+        programmeStr = programmeStr.concat("<a href=\"orientation-prog.html\" class=\"pull-right\">Orientation Programme</a>");
+        programmeStr = programmeStr.concat("</div>");
         
-        programmeStr = programmeStr.concat("</tbody>");
-        programmeStr = programmeStr.concat("</table>");
-        programmeStr = programmeStr.concat("<div>");
+        if (progTableContent.length == 0) {
+            programmeStr = programmeStr.concat("<p class=\"pagination-centered\">No activity planned for");
+            if (curSuffix == "AM") {
+                programmeStr = programmeStr.concat(" today");
+            } else {
+                programmeStr = programmeStr.concat(" this afternoon");
+            }
+            programmeStr = programmeStr.concat("</p>");
+        } else {
+            programmeStr = programmeStr.concat("<table class=\"table table-hover table-bordered\">");
+            programmeStr = programmeStr.concat("<caption>Faculty of <strong>" + facultyName + "</strong></caption>");
+            programmeStr = programmeStr.concat("<thead>");
+            programmeStr = programmeStr.concat("<tr>");
+            programmeStr = programmeStr.concat("<th>Time</th>");
+            programmeStr = programmeStr.concat("<th>Event</th>");
+            programmeStr = programmeStr.concat("<th>Venue</th>");
+            programmeStr = programmeStr.concat("</tr>");
+            programmeStr = programmeStr.concat("</thead>");
+            programmeStr = programmeStr.concat("<tbody>");
+            
+            programmeStr = programmeStr.concat(progTableContent);
+            
+            programmeStr = programmeStr.concat("</tbody>");
+            programmeStr = programmeStr.concat("</table>");
+        }
+        
+        programmeStr = programmeStr.concat("<div class=\"hidden-phone\">");
         programmeStr = programmeStr.concat("<a href=" + linkToFac + " class=\"pull-left\">Faculty Programme</a>");
         programmeStr = programmeStr.concat("<a href=\"orientation-prog.html\" class=\"pull-right\">Orientation Programme</a>");
         programmeStr = programmeStr.concat("</div>");
         programmeStr = programmeStr.concat("</div>");
-
+        
         return programmeStr;
     },
     
-    generateProgTablePMContent: function(programmeData, viewDate) {
+    generateProgTableContent: function(programmeData, viewDate, ignoreSuffix){
         var progTable = "";
-        
+        var j = 0;
         for (var i = 0; i < programmeData.length; i++) {
             var curProg = programmeData[i];
             var curDate = new Date(curProg.eventDate);
-            if ((curDate.getTime() != viewDate.getTime()) || (curProg.suffix != "PM")) {
+            var filterCondition = (curDate.getTime() != viewDate.getTime());
+            if (! ignoreSuffix) {
+                filterCondition = filterCondition || (curProg.suffix != "PM")
+            }
+            if (filterCondition) {
                 continue;
             } else {
-                if (i % 2 == 0) {
+                if (j % 2 == 0) {
                     progTable = progTable.concat("<tr class=\"info\">");
                 } else {
                     progTable = progTable.concat("<tr class=\"warning\">");
                 }
+                j++;
                 progTable = progTable.concat("<td>" + curProg.eventStart + "-" + curProg.eventEnd + "</td>");
-                progTable = progTable.concat("<td><a class=\"progevt\" rel=popover data-content=" + curProg.eventDesc + ">" + curProg.eventTitle + "</a></td>");
+                progTable = progTable.concat("<td><a class=\"progevt\" rel=popover data-content=\"" + curProg.eventDesc + "\">" + curProg.eventTitle + "</a></td>");
                 progTable = progTable.concat("<td>" + curProg.eventVenue + "</td>");
                 
                 progTable = progTable.concat("</tr>")
@@ -605,28 +627,11 @@ var app = {
         return progTable;
     },
     
+    generateProgTablePMContent: function(programmeData, viewDate) {
+        return this.generateProgTableContent(programmeData, viewDate, false);
+    },
+    
     generateProgTableAMContent: function(programmeData, viewDate){
-        var progTable = "";
-        
-        for (var i = 0; i < programmeData.length; i++) {
-            var curProg = programmeData[i];
-            var curDate = new Date(curProg.eventDate);
-            if (curDate.getTime() != viewDate.getTime()) {
-                continue;
-            } else {
-                if (i % 2 == 0) {
-                    progTable = progTable.concat("<tr class=\"info\">");
-                } else {
-                    progTable = progTable.concat("<tr class=\"warning\">");
-                }
-                progTable = progTable.concat("<td>" + curProg.eventStart + "-" + curProg.eventEnd + "</td>");
-                progTable = progTable.concat("<td><a class=\"progevt\" rel=popover data-content=\"" + curProg.eventDesc + "\">" + curProg.eventTitle + "</a></td>");
-                progTable = progTable.concat("<td>" + curProg.eventVenue + "</td>");
-            
-                progTable = progTable.concat("</tr>")
-            }
-        }
-        
-        return progTable;
+        return this.generateProgTableContent(programmeData, viewDate, true);
     }
 };

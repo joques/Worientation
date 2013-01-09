@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container hidden-phone" id="headProg">
+                <header class="hero-unit red-or">
+                    <h1>Quick Notifications</h1>
+                </header>
+            </div>
+            <div class="container clearfix">
+                <div class="row-fluid">
+                    <div class="btn-toolbar">
+                        <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="well" id="quicknot">
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered" id="footProg">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="iscroll.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            var scrollObj;
+            function loadScroll() {
+                document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+                scrollObj = new iScroll('quicknot', {checkDOMChanges: true});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+            $(function() {
+              var quickProgramme = {
+                "2013/1/9": [
+              {
+                               completeStartTime: "2013/01/09 14:55",
+                               startTime: "14:30",
+                               endTime: "15:30",
+                               organizer: "Faculty of Health Sciences",
+                               eventTitle: "Meet and greet the Physiotherapy Department",
+                               eventDesc: "Put a description here",
+                               eventVenue: "Medical School Room 5A08, 5th  Floor"
+              },{
+                               completeStartTime: "2013/01/09 12:04",
+                               startTime: "09:00",
+                               endTime: "10:00",
+                               organizer: "Faculty of Humanities",
+                               eventTitle: "Planning an exciting BA Curriculum",
+                               eventDesc: "How nice to study Art",
+                               eventVenue: "Wits Great Hall"
+                               },
+              {
+                               completeStartTime: "2013/01/09 11:57",
+                               startTime: "09:30",
+                               endTime: "10:15",
+                               organizer: "Faculty of Engineering &amp; Built environment",
+                               eventTitle: "A brief look at civilization",
+                               eventDesc: "Some more description about civilization",
+                               eventVenue: "Chamber of Mines"
+                               }, {
+                               completeStartTime: "2013/01/09 11:50",
+                               startTime: "09:30",
+                               endTime: "10:30",
+                               organizer: "Faculty of Commerce",
+                               eventTitle: "Reasons to pursue a vocation in Law",
+                               eventDesc: "Put a description here",
+                               eventVenue: "New Commerce Building 1, West Campus"
+                               }
+              ],
+                "2013/1/10": []
+              };
+              var curDate = new Date();
+              var curDateStr = "" + curDate.getFullYear() + "/" + (curDate.getMonth() + 1) + "/" + curDate.getDate();
+              var hotProgs = quickProgramme[curDateStr];
+              var hotContent = "";
+              hotContent = hotContent.concat("<div class=\"scroller\" id=\"qnscroller\">");
+              if ((typeof(hotProgs) == 'undefined') || (hotProgs == null) || (hotProgs.length == 0)) {
+                hotContent = hotContent.concat("<p class=\"pagination-centered\">No hot notification for this time</p>");
+              } else {
+                var hotProgDetails = "";
+                var j = 0;
+                for(var i = 0; i < hotProgs.length; i++) {
+                    var curHotProg = hotProgs[i];
+                    var curHotProgDnTStr = curHotProg.completeStartTime;
+                    var curHotProgDnT = new Date(curHotProgDnTStr);
+                    if ((curHotProgDnT.getTime() > curDate.getTime()) && (curHotProgDnT.getTime() - curDate.getTime() <= 1800000)) {
+                        if (j % 2 == 0) {
+                            hotProgDetails = hotProgDetails.concat("<tr class=\"info\">");
+                        } else {
+                            hotProgDetails = hotProgDetails.concat("<tr class=\"success\">");
+                        }
+                        hotProgDetails = hotProgDetails.concat("<td>" + curHotProg.startTime + "-" + curHotProg.endTime + "</td>");
+                        hotProgDetails = hotProgDetails.concat("<td class=\"hidden-phone\">" + curHotProg.organizer + "</td>")
+                        hotProgDetails = hotProgDetails.concat("<td><a rel=popover data-content=\"" + curHotProg.eventDesc + "\">" + curHotProg.eventTitle + "</a></td>");
+                        hotProgDetails = hotProgDetails.concat("<td>" + curHotProg.eventVenue + "</td>");
+                        hotProgDetails = hotProgDetails.concat("</tr>");
+                        j++;
+                    } else {continue;}
+                }
+                if (hotProgDetails.length == 0) {
+                    hotContent = hotContent.concat("<p class=\"pagination-centered\">No hot notification for this time</p>");
+                } else {
+                    hotContent = hotContent.concat("<table class=\"table table-hover table-bordered\">");
+                    hotContent = hotContent.concat("<caption><strong>Coming Soon...</strong></caption>");
+                    hotContent = hotContent.concat("<thead>");
+                    hotContent = hotContent.concat("<tr>");
+                    hotContent = hotContent.concat("<th>Time</th>");
+                    hotContent = hotContent.concat("<th class=\"hidden-phone\">Organizer</th>");
+                    hotContent = hotContent.concat("<th>Event</th>");
+                    hotContent = hotContent.concat("<th>Venue</th>");
+                    hotContent = hotContent.concat("</tr>");
+                    hotContent = hotContent.concat("</thead>");
+                    hotContent = hotContent.concat("<tbody>");
+                    hotContent = hotContent.concat(hotProgDetails);
+                    hotContent = hotContent.concat("</tbody>");
+                    hotContent = hotContent.concat("</table>");
+                }
+              }
+              hotContent = hotContent.concat("</div>");
+              var myElem = $('#quicknot');
+              myElem.empty();
+              myElem.append(hotContent);
+//              scrollObj = new iScroll('quicknot');
+              $("[rel=popover]").popover({placement: 'top', offset: 10});
+              });
+            </script>
+    </body>
+</html>
