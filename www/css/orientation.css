@@ -212,11 +212,11 @@ html, body {
 
 #facprog {
     position: absolute;
-    top: 352px;
+    top: 362px;
     bottom: 66px;
     padding-left: 4%;
     padding-right: 4%;
-    width: 86%;
+    width: 86.2%;
     border-width: 0;
     overflow-y: scroll;
 }

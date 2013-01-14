@@ -152,10 +152,10 @@
             }
             var curDate = new Date();
             curDate.setHours(0,0,0,0);
-            var surveyDateStr = "2013/01/11";
+            var surveyDateStr = "2013/01/14";
             var surveyDate = new Date(surveyDateStr);
             var surveyCompleted = window.localStorage.getItem("survey");
-            if ((curDate.getTime() == surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
+            if ((curDate.getTime() >= surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
                 $('.download-info').find('#surveyBtn').show();
             }
             

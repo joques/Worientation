@@ -61,7 +61,7 @@
                 
                 <img src="img/home.png" align="left" width=30 height=30
 				onclick="doCoord()" /> <img src="img/wits-logo.png" width=30
-				height=30 /> <img src="img/search.png" align="right" width=30
+				height=30 onclick="backToMain()" /> <img src="img/search.png" align="right" width=30
 				height=30 onclick="makePopup()" />
             </div>
         </footer>
@@ -82,6 +82,10 @@
             var gpsmultx = 113941.6984;
             var gpsmulty = -123575.9494;
             var diag;
+            
+            function backToMain() {
+                window.location.replace("index.html");
+            }
             
             function setGPSTarget(vert, horiz) {
                 calcCoord(vert, horiz, 'overlayTarget');
