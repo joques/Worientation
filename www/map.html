@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css"
+        href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css"
+        href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/map.css" />
+        <title>Orientation</title>
+        <script type="text/javascript" src="iscroll.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="header" class="container">
+                <header class="red-or">
+                    <h1 style="color: #ffffff; font-size: 20px;"><div id="maptitle">Map</div></h1>
+                </header>
+            </div>
+            
+            <div class="mapwrapper container" id="mapwrapper" style="border: 2px solid #000066;">
+                <div id="scroller" class="scroller">
+                    <img id="mapimg" src="img/braamfonteinmap.png" width="2186px" height="1492px">
+                        <div class="overlay" id="overlay">
+                         <img src="img/person.png">
+                         </div>
+                         <div class="overlayTarget" id="overlayTarget">
+                         <img src="img/target.png">
+                         </div>
+                        </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        
+        <footer id="footer" class="footer pagination-centered">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                
+                <img src="img/home.png" align="left" width=30 height=30
+				onclick="doCoord()" /> <img src="img/wits-logo.png" width=30
+				height=30 /> <img src="img/search.png" align="right" width=30
+				height=30 onclick="makePopup()" />
+            </div>
+        </footer>
+        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            var witsgpslocation;
+            var myScroll;
+            var listScroll;
+            var mapWidth, mapHeight;
+            var currentV = 0;
+            var currentH = 0;
+            var gpstop = -26.1827578;
+            var gpsleft = 28.01695516;
+            var gpsmultx = 113941.6984;
+            var gpsmulty = -123575.9494;
+            var diag;
+            
+            function setGPSTarget(vert, horiz) {
+                calcCoord(vert, horiz, 'overlayTarget');
+                //document.getElementById('overlayTarget').style.visibility = "visible";
+                diag.dialog("close");
+            }
+            
+            function changeMap(map){
+                document.getElementById('mapimg').src="img/"+map+"map.png";
+                document.getElementById('maptitle').innerHTML="Map - "+map+ " Campus";
+                if (map=="Braamfontein"){
+                    gpstop = -26.1827578;
+                    gpsleft = 28.01695516;
+                    gpsmultx = 113941.6984;
+                    gpsmulty = -123575.9494;
+                }
+                if (map=="Parktown"){
+                    gpstop = -26.178221;
+                    gpsleft = 28.034329;
+                    gpsmultx = 113941.6984;
+                    gpsmulty = -123575.9494;
+                }
+            }
+            
+            function setMapPlace(placename){
+                changeMap(witsgpslocation[placename][2]);
+                setMapTarget(witsgpslocation[placename][0], witsgpslocation[placename][1]);
+            }
+            
+            function setMapTarget(x, y) {
+                calcMapCoord(y, x, 'overlayTarget');
+                diag.dialog("close");
+            }
+            function filter(element,what) {
+                var searchString = element.value;
+                $('#'+what+' li').each(function(i, li) {
+                                       var $product = $(li);
+                                       if($product.text().toLowerCase().indexOf(searchString.toLowerCase())>=0){
+                                       $product.show();
+                                       } else {
+                                       $product.hide();
+                                       }
+                                       });
+            }
+            
+            function buildPopup() {
+                var diagString = '<div id="myDialog"><div id="listwrapper" style="height:400px"><div id="listscroller" style="position:relative;width:95%; margin-left:auto; margin-right:auto"><ul id="theList">';
+                for (k in witsgpslocation){
+                    diagString += '<li id="'+k+'" style="font-size:20px;height:50px;" onclick="setMapPlace(\''+k+'\')">'+k+'</li>';
+                }
+                diagString+='</ul></span></div></div>';
+                diag = $(diagString);
+                diag.dialog({
+                            title : "Filter : <input type='text' onkeyup=\"filter(this,'theList')\"/>",
+                            draggable : false,
+                            autoOpen : false,
+                            modal : true,
+                            width : "90%",
+                            marginLeft : 0,
+                            resizable:false,
+                            });
+                listScroll = new iScroll('myDialog', {
+                                         vScroll : true,
+                                         hScroll : true,
+                                         zoom : true
+                                         });
+            }
+            
+            function makePopup() {
+                diag.dialog("open");
+                listScroll.refresh();
+            }
+            
+            function updateCurrentLocation(vert, horiz) {
+                currentV = vert;
+                currentH = horiz;
+                doCoord();
+            }
+            
+            function doCoord() {
+                calcCoord(currentV, currentH, 'overlay');
+            }
+            
+            function calcMapCoord(vert, horiz, element) {
+                var xpix = horiz;
+                var ypix = vert;
+                if ((xpix < 0) || (ypix < 0) || (xpix>2186) || (ypix>1492)) {
+                    document.getElementById(element).style.visibility = "hidden";
+                } else {
+                    document.getElementById(element).style.visibility = "visible";
+                    document.getElementById(element).style.top = ypix + "px";
+                    document.getElementById(element).style.left = xpix + "px";
+                    var zoomLevelW = myScroll.scrollerW / $("#scroller").width();
+                    var zoomLevelH = myScroll.scrollerH / $("#scroller").height();
+                    myScroll.scrollTo(-xpix * zoomLevelW + (mapWidth / 2), -ypix
+                                      * zoomLevelH + (mapHeight / 2), 1500);
+                }
+            }
+            
+            function calcCoord(vert, horiz, element) {
+                var xpix = ((horiz - gpsleft) * gpsmultx);
+                var ypix = ((vert - gpstop) * gpsmulty);
+                calcMapCoord(ypix, xpix, element);
+            }
+            
+            function displayLocation(position) {
+                
+                //build text string including co-ordinate data passed in parameter
+                updateCurrentLocation(position.coords.latitude,
+                                      position.coords.longitude);
+                //display the string for demonstration
+            }
+            
+            function displayError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                    alert("Permission was denied");
+                    break;
+                    case error.POSITION_UNAVAILABLE:
+                    alert("Location data not available");
+                    break;
+                    case error.TIMEOUT:
+                    alert("Location request timeout");
+                    break;
+                    case error.UNKNOWN_ERROR:
+                    alert("An unspecified error occurred");
+                    break;
+                    default:
+                    alert("Who knows what happened...");
+                    break;
+                }
+            }
+            
+            function loadScroll() {
+              //  alert("Stuff");
+                document.addEventListener('touchmove', function(e){e.preventDefault(); });
+                myScroll =new iScroll('mapwrapper');
+            }
+
+            $(function() { // wait for the DOM to be ready
+              var winW = 630, winH = 460;
+              loadScroll();
+              witsgpslocation = new Array();
+              
+              witsgpslocation["Braamfontein Campus"] = new Array(1540, 1258, "Braamfontein");
+              witsgpslocation["Parktown Campus"] = new Array(1540, 1258, "Parktown");
+              witsgpslocation["Alumni House"] = new Array(988,403,"Braamfontein");
+              witsgpslocation["Art Museum"] = new Array(1836,1254,"Braamfontein");
+              witsgpslocation["Barnato Hall"] = new Array(895,523,"Braamfontein");
+              witsgpslocation["Bernard Price"] = new Array(1395,1226,"Braamfontein");
+              witsgpslocation["Biology"] = new Array(1641,1018,"Braamfontein");
+              witsgpslocation["Bohlaleng Block"] = new Array(1389,747,"Parktown");
+              witsgpslocation["Bozzoli Pavilion"] = new Array(1484,512,"Braamfontein");
+              witsgpslocation["Campus Centre"] = new Array(1365,670,"Parktown");
+              witsgpslocation["Campus Lodge"] = new Array(1736,1431,"Braamfontein");
+              witsgpslocation["CCDU"] = new Array(1147,1011,"Braamfontein");
+              witsgpslocation["Central Block"] = new Array(1524,1159,"Braamfontein");
+              witsgpslocation["Centre for Language and Hearing"] = new Array(865,593,"Parktown");
+              witsgpslocation["Chamber of Mines"] = new Array(1147,1104,"Braamfontein");
+              witsgpslocation["Charlotte Maxeke"] = new Array(1678,199,"Parktown");
+              witsgpslocation["CLTD"] = new Array(1006,1173,"Braamfontein");
+              witsgpslocation["College House"] = new Array(1537,770,"Braamfontein");
+              witsgpslocation["Commerce Library"] = new Array(961,833,"Braamfontein");
+              witsgpslocation["Commerce, Law and Management"] = new Array(1078,817,"Braamfontein");
+              witsgpslocation["Dalrymple House"] = new Array(1408,782,"Braamfontein");
+              witsgpslocation["David Webster"] = new Array(1042,520,"Braamfontein");
+              witsgpslocation["DJ Du Plessis"] = new Array(815,689,"Braamfontein");
+              witsgpslocation["Donald Gordon Medical Center"] = new Array(359,689,"Parktown");
+              witsgpslocation["Education Campus"] = new Array(1105,819,"Parktown");
+              witsgpslocation["Emthonjeni"] = new Array(1720,1027,"Braamfontein");
+              witsgpslocation["Ernest Oppenheimer Hall"] = new Array(695,926,"Parktown");
+              witsgpslocation["Facilities"] = new Array(832,766,"Braamfontein");
+              witsgpslocation["First National Bank Building"] = new Array(1068,724,"Braamfontein");
+              witsgpslocation["Flower Hall"] = new Array(1048,1115,"Braamfontein");
+              witsgpslocation["FNB Building"] = new Array(1068,724,"Braamfontein");
+              witsgpslocation["Gate House"] = new Array(1710,1150,"Braamfontein");
+              witsgpslocation["Genmin Labs"] = new Array(1032,1065,"Braamfontein");
+              witsgpslocation["Geoscience"] = new Array(1440,1051,"Braamfontein");
+              witsgpslocation["Girton Hall"] = new Array(1512,681,"Parktown");
+              witsgpslocation["Graduate Lodge"] = new Array(1577,1341,"Braamfontein");
+              witsgpslocation["Great Hall"] = new Array(1524,1159,"Braamfontein");
+              witsgpslocation["Hall 29"] = new Array(1037,458,"Braamfontein");
+              witsgpslocation["Harold Holmes Library"] = new Array(1364,586,"Parktown");
+              witsgpslocation["High Voltage Lab"] = new Array(1008,1104,"Braamfontein");
+              witsgpslocation["Highfield"] = new Array(1617,607,"Parktown");
+              witsgpslocation["Hillman"] = new Array(1435,1188,"Braamfontein");
+              witsgpslocation["Hofmeyer House"] = new Array(1729,741,"Braamfontein");
+              witsgpslocation["Hostel Drive"] = new Array(1510,714,"Braamfontein");
+              witsgpslocation["Humphrey Raikes"] = new Array(1630,1163,"Braamfontein");
+              witsgpslocation["International House"] = new Array(1631,799,"Braamfontein");
+              witsgpslocation["iThemba Labs"] = new Array(1476,437,"Braamfontein");
+              witsgpslocation["Jan Smuts House"] = new Array(1700,952,"Braamfontein");
+              witsgpslocation["John Moffat"] = new Array(1408,911,"Braamfontein");
+              witsgpslocation["Jubilee Hall"] = new Array(1755,695,"Braamfontein");
+              witsgpslocation["Khanya Block"] = new Array(1471,488,"Parktown");
+              witsgpslocation["Language School"] = new Array(1605,447,"Braamfontein");
+              witsgpslocation["Law Clinic"] = new Array(961,833,"Braamfontein");
+              witsgpslocation["Leseding Block"] = new Array(1404,826,"Parktown");
+              witsgpslocation["Linder Auditorium"] = new Array(1251,582,"Parktown");
+              witsgpslocation["Marang Centre"] = new Array(1538,858,"Parktown");
+              witsgpslocation["McGregor Block"] = new Array(1422,897,"Parktown");
+              witsgpslocation["Medhurst Hall"] = new Array(1563,738,"Parktown");
+              witsgpslocation["Medical School"] = new Array(1747,455,"Parktown");
+              witsgpslocation["Mwalimu House"] = new Array(579,945,"Parktown");
+              witsgpslocation["New Commerce"] = new Array(1104,869,"Braamfontein");
+              witsgpslocation["North Lodge"] = new Array(668,758,"Parktown");
+              witsgpslocation["North West Engineering"] = new Array(1365,1051,"Braamfontein");
+              witsgpslocation["Old Grandstand"] = new Array(1021,910,"Braamfontein");
+              witsgpslocation["Old Mutual Sports Hall"] = new Array(1399,847,"Braamfontein");
+              witsgpslocation["Oppenheimer Life Sciences"] = new Array(1712,1094,"Braamfontein");
+              witsgpslocation["Origins Centre"] = new Array(1283,1247,"Braamfontein");
+              witsgpslocation["Outeniqua House"] = new Array(600,1118,"Parktown");
+              witsgpslocation["Palaeosciences Centre"] = new Array(1388,1285,"Braamfontein");
+              witsgpslocation["Parktown Village"] = new Array(728,1043,"Parktown");
+              witsgpslocation["Physics"] = new Array(1625,1109,"Braamfontein");
+              witsgpslocation["Planetarium"] = new Array(1294,713,"Braamfontein");
+              witsgpslocation["Reith Hall"] = new Array(1615,798,"Parktown");
+              witsgpslocation["Res Admin"] = new Array(796,1099,"Parktown");
+              witsgpslocation["Richard Ward"] = new Array(1443,1271,"Braamfontein");
+              witsgpslocation["Sarua"] = new Array(596,844,"Parktown");
+              witsgpslocation["School of Arts"] = new Array(1777,1154,"Braamfontein");
+              witsgpslocation["School of P&DM"] = new Array(676,1098,"Parktown");
+              witsgpslocation["Science Stadium"] = new Array(981,1003,"Braamfontein");
+              witsgpslocation["Senate House"] = new Array(1538,1254,"Braamfontein");
+              witsgpslocation["South Court"] = new Array(1660,1334,"Braamfontein");
+              witsgpslocation["South West Engineering"] = new Array(1421,1134,"Braamfontein");
+              witsgpslocation["Squash Courts"] = new Array(1138,443,"Braamfontein");
+              witsgpslocation["Student Enrollment"] = new Array(1538,1254,"Braamfontein");
+              witsgpslocation["Sunnyside"] = new Array(1672,871,"Braamfontein");
+              witsgpslocation["The Matrix"] = new Array(1561,863,"Braamfontein");
+              witsgpslocation["The Nunnery"] = new Array(1813,1214,"Braamfontein");
+              witsgpslocation["Theatre"] = new Array(1659,1263,"Braamfontein");
+              witsgpslocation["Trematon Place"] = new Array(682,835,"Parktown");
+              witsgpslocation["Umthombo"] = new Array(1600,955,"Braamfontein");
+              witsgpslocation["University Corner"] = new Array(1778,1259,"Braamfontein");
+              witsgpslocation["Wartenweiler"] = new Array(1572,1027,"Braamfontein");
+              witsgpslocation["West Campus Village"] = new Array(817,534,"Braamfontein");
+              witsgpslocation["William Cullen"] = new Array(1407,986,"Braamfontein");
+              witsgpslocation["Wits Art Museum"] = new Array(1836,1254,"Braamfontein");
+              witsgpslocation["Wits Club"] = new Array(1000,375,"Braamfontein");
+              witsgpslocation["Wits Junction"] = new Array(1872,1078,"Parktown");
+              witsgpslocation["Wits Medical School"] = new Array(1747,455,"Parktown");
+              witsgpslocation["Wits Plus"] = new Array(1156,894,"Braamfontein");
+              witsgpslocation["Wits Theatre"] = new Array(1659,1263,"Braamfontein");
+              witsgpslocation["Wozani Block"] = new Array(1502,554,"Parktown");
+              var options = {frequency:3000, enableHighAccuracy:true};
+              watchID = navigator.geolocation.watchPosition(displayLocation,
+                                                            displayError, options);
+              
+              if (document.body && document.body.offsetWidth) {
+              winW = document.body.offsetWidth;
+              winH = document.body.offsetHeight;
+              }
+              if (document.compatMode == 'CSS1Compat' && document.documentElement
+                  && document.documentElement.offsetWidth) {
+              winW = document.documentElement.offsetWidth;
+              winH = document.documentElement.offsetHeight;
+              }
+              if (window.innerWidth && window.innerHeight) {
+              winW = window.innerWidth;
+              winH = window.innerHeight;
+              }
+              var h = winH - $("#header").height() - $("#footer").height();
+              //$("#wrapper").height(h);
+              buildPopup();
+              mapWidth = winW;
+              mapHeight = h;
+              
+              myScroll.scrollTo(-1286,-992);
+              if (document.URL.indexOf("#")>0){
+              setMapPlace(document.URL.substring(document.URL.indexOf("#")+1));
+              }
+              
+              });
+            </script>
+    </body>
+</html>

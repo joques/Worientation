@@ -21,7 +21,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
@@ -57,7 +57,7 @@
                 </header>
             </div>
             <div class="container hidden-tablet clearfix">
-                <p class="pagination-centered" style="margin-bottom: 40px;">Your journey to becoming a Witsie begins here...</p>
+                <p class="pagination-centered" style="margin-bottom: 40px;">Brought to you by the School of Computer Science, Office of the Registrar &amp; Division of Student Affairs, University of the Witswatersrand</p>
                 <div class="download-info pagination-centered">
                     <a class="btn btn-success btn-large" style="display: none;" href="survey.html" title="Survey" id="surveyBtn">Take a Survey</a>
                 </div>
@@ -113,7 +113,7 @@
                                 <dd>Feb. 4th -- Feb. 8th 2013 12:30 - 14:30 Getting around the city</dd>
                                 <dt>Sport @ Wits</dt>
                                 <dd>Feb. 4th -- Feb. 8th 2013 Old Mutual Sports Hall</dd>
-                                <dt>Night of WLS (Science Stadium)</dt>
+                                <dt>Night OWLS (Science Stadium)</dt>
                                 <dd>
                                     <strong>Street Party</strong>: Feb. 4th 18:00
                                     <strong>RAG</strong>: Feb. 6th 18:30
@@ -121,7 +121,7 @@
                                     <strong>Freshers' Bash</strong>: Feb. 8th 19:00
                                 </dd>
                                 <dt>Credits</dt>
-                                <dd>School of Computer Science, University of the Witswatersrand</dd>
+                                <dd>Brought to you by the School of Computer Science, Office of the Registrar &amp; Division of Student Affairs, University of the Witswatersrand</dd>
                             </dl>
                         </div>
                     </div>
@@ -132,15 +132,17 @@
         <footer class="footer pagination-centered">
             <div class="container">
                 <p class="pagination-centered">Witsie 4 Life!</p>
-                <p class="pull-left small hidden-tablet">Developed by the School of Computer Science, Uiniversity of the Witswatersrand</p>
+                <p class="pull-left small hidden-tablet"></p>
             </div>
         </footer>
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8" src="phonegap/plugin/localNotification/localNotification.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
             window.localStorage.removeItem("login");
+            window.localStorage.removeItem("survey");
             var loginVal = window.localStorage.getItem("login");
             if (! loginVal) {
                 $('.download-info').find('#registerBtn').show();
@@ -150,11 +152,18 @@
             }
             var curDate = new Date();
             curDate.setHours(0,0,0,0);
-            var surveyDateStr = "2013/01/09";
+            var surveyDateStr = "2013/01/11";
             var surveyDate = new Date(surveyDateStr);
-            if (curDate.getTime() == surveyDate.getTime()) {
+            var surveyCompleted = window.localStorage.getItem("survey");
+            if ((curDate.getTime() == surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
                 $('.download-info').find('#surveyBtn').show();
             }
+            
+            localNotification.add( "0", {
+                                  seconds: 4,
+                                  message: 'chaaaarrrliieeeee',
+                                  badge: 1
+                                  } );
         </script>
     </body>
 </html>

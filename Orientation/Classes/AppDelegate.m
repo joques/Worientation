@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+//#import "../Plugins/LocalNotification/LocalNotification.h"
 
 #import <Cordova/CDVPlugin.h>
 
@@ -136,5 +137,23 @@
 
     return supportedInterfaceOrientations;
 }
+
+//- (void)applicationWillResignActive:(UIApplication *)application
+//{
+//    // apply any queued notifications
+//    [LocalNotification emptyNotificationQueue];
+//}
+//
+//- (void)applicationWillResignActive:(UIApplication *)application
+//{
+//    // apply any queued notifications
+//    [LocalNotification emptyNotificationQueue];
+//}
+//
+//- (void)applicationDidEnterBackground:(UIApplication *)application
+//{
+//    // apply any queued notifications
+//    [LocalNotification emptyNotificationQueue];
+//}
 
 @end

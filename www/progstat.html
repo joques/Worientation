@@ -21,7 +21,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
@@ -44,12 +44,14 @@
                 </div>
                 <div class="well">
                     <select class="span6" id="selFaculty">
+                        <option value="engineering">Engineering &amp; the Built Environment</option>
+                        <option value="commerce">Commerce, Law &amp; Management</option>
+                        <option value="science">Science</option>
                         <option value="healthsc">Health Sciences</option>
                         <option value="humanities">Humanities</option>
-                        <option value="commerce">Commerce, Law &amp; Management</option>
-                        <option value="engineering">Engineering &amp; Built Environment</option>
-                        <option value="science">Science</option>
+                        <option value="general">General</option>
                         <option value="sport">Sport</option>
+                        <option value="international">Wits International Office</option>
                         <option selected="selected" value="healthsc">Select your Programme</option>
                     </select>
                 </div>
@@ -75,7 +77,7 @@
         <script type="text/javascript">
             var scrollObj;
             function loadScroll() {
-                document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+                document.addEventListener('touchmove', function(e){scrollObj.refresh(); e.preventDefault(); });
                 scrollObj = new iScroll('facprog', {checkDOMChanges: false});
             }
             document.addEventListener('DOMContentLoaded', loadScroll);

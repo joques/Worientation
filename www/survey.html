@@ -21,7 +21,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
@@ -35,14 +35,14 @@
                 </header>
             </div>
             <div class="contain">
-                <div class="span8 offset2">
+                <div class="span10 offset1">
                     <div class="hero-unit">
                         <form class="form-horizontal" method="post" id="wsurvey">
                             <h2>Survey</h2>
                             <p>Let us know how you felt about the orientation</p>
-                            <div id="survey-step-1">
+                            <div id="survey-step-1" stype="display: block;">
                                 <fieldset>
-                                    <legend>Your Details</legend>
+                                    <legend>Step 1 - Your Personal Information</legend>
                                         <div class="control-group">
                                         <label class="control-label" for="sex">Sex</label>
                                         <div class="controls">
@@ -91,36 +91,343 @@
                                         </div>
                                     </div>
                                     <div class="control-group pull-right">
-                                        <button class="btn btn-danger" type="submit" name="part1But">Next</button>
+                                        <button class="btn btn-danger" type="submit" name="part1But" id="survey-submit-1">Next</button>
                                     </div>
                                 </fieldset>
                             </div>
-                            <div id="survey-step-2">
+                            <div id="survey-step-2" style="display: none;">
                                 <fieldset>
-                                    <legend>Your impressions of the activities</legend>
-                                </fieldset>
-                                <div class="control-group">
-                                    <label class="control-label" for="regsmooth">Registration Smooth and hassle free</label>
-                                    <div class="controls">
-                                        <label class="radio inline">
-                                            <input type="radio" name="regsmooth" id"regsmooth0" value="poor" checked>Poor
-                                        </label>
-                                        <label class="radio inline">
-                                            <input type="radio" name="regsmooth" id"regsmooth1" value="average">Average
-                                        </label>
-                                        <label class="radio inline">
-                                            <input type="radio" name="regsmooth" id"regsmooth1" value="good">Good
-                                        </label>
-                                        <label class="radio inline">
-                                            <input type="radio" name="regsmooth" id"regsmooth1" value="NA">Did not attend
-                                        </label>
+                                    <legend>Step 2 - Your impressions of the activities</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="regsmooth">Residence Orientation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="regsmooth" id="regsmooth0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="regsmooth" id="regsmooth1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="regsmooth" id="regsmooth2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="regsmooth" id="regsmooth3" value="NA">N/A
+                                                    </label>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="facor">Faculty Orientation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="facor" id="facor0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facor" id="facor1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facor" id="facor2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facor" id="facor3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="facdad">Faculty Dean Address</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="facdad" id="facdad0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facdad" id="facdad1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facdad" id="facdad2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="facdad" id="facdad3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="weld">Welcome Day</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="weld" id="weld0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="weld" id="weld1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="weld" id="weld2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="weld" id="weld3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part2But" id="survey-submit-2">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-3" style="display: none;">
+                                <fieldset>
+                                    <legend>Step 3 - Your impressions of the activities (cont.)</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="res">Residence Orientation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="res" id="res0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="res" id="res1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="res" id="res2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="res" id="res3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="lifew">Mastering Life @ Wits Presentation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="lifew" id="lifew0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="lifew" id="lifew1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="lifew" id="lifew2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="lifew" id="lifew3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="newsp">Learn a new sport</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="newsp" id="newsp0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="newsp" id="newsp1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="newsp" id="newsp2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="newsp" id="newsp3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="sdr">Sex, Drugs &amp; RnRoll Presentation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="sdr" id="sdr0" value="poor" checked>Poor
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="sdr" id="sdr1" value="average">Avg
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="sdr" id="sdr2" value="good">Good
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="sdr" id="sdr3" value="NA">N/A
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part3But" id="survey-submit-3">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-4" style="display: none;">
+                                <fieldset>
+                                    <legend>Step 4 - Feeling accepted during the orientation with regards to</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="racea">Race</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="racea" id="racea0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="racea" id="racea1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="racea" id="racea2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="rela">Religion</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="rela" id="rela0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="rela" id="rela1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="rela" id="rela2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="sexora">Sexual Orientation</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="sexora" id="sexora0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="sexora" id="sexora1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="sexora" id="sexora2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="pmaba">Physical or Mental Abilities</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="pmaba" id="pmaba0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="pmaba" id="pmaba1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="pmaba" id="pmaba2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part4But" id="survey-submit-4">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-5" style="display: none;">
+                                <fieldset>
+                                    <legend>Step 5 - Feeling accepted during the orientation with regards to (cont.)</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="langa">Language</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="langa" id="langa0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="langa" id="langa1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="langa" id="langa2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="culta">Culture</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="culta" id="culta0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="culta" id="culta1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="culta" id="culta2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="ecosta">Economic Status</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="ecosta" id="ecosta0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="ecosta" id="ecosta1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="ecosta" id="ecosta2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>                                    
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part5But" id="survey-submit-5">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-6" style="display: none;">
+                                <fieldset>
+                                    <legend>Step 6 - Social Networking</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="friendship">Making new friends at Wits</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="friendship" id="friendship0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="friendship" id="friendship1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="friendship" id="friendship2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="overalla">Overall Acceptance</label>
+                                        <div class="controls">
+                                            <label class="radio inline">
+                                                <input type="radio" name="overalla" id="overalla0" value="not at all" checked>Not at all
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="overalla" id="overalla1" value="somewhat">Somewhat
+                                                    </label>
+                                            <label class="radio inline">
+                                                <input type="radio" name="overalla" id="overalla2" value="greatly">Greatly
+                                                    </label>
+                                        </div>
+                                    </div>
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-danger" type="submit" name="part6But" id="survey-submit-6">Next</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div id="survey-step-7" style="display: none;">
+                                <fieldset>
+                                    <legend>Final Step - Opinions of the Orientation Week</legend>
+                                    <div class="control-group">
+                                        <label class="control-label" for="enjoyed">What have you enjoyed most?</label>
+                                        <div class="controls">
+                                            <textarea class="span4" name="enjoyed" id="enjoyed" placeholder="Cool stuff you liked" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="improve">Suggestions about the week</label>
+                                        <div class="controls">
+                                            <textarea class="span4" name="improve" id="improve" placeholder="Any improvements?" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="control-group pull-right">
+                                        <button class="btn btn-success" type="submit" name="part7But" id="survey-submit-7">Submit</button>
+                                    </div>
+                                </fieldset>
                             </div>
                         </form>
+                        <div class="progress active">
+                            <div class="bar" id="survey-prog" style="width: 0%;">
+                        </div>
                     </div>
                 </div>
             </div>
+                </div>
             <div class="push"></div>
         </div>
         <footer class="footer pagination-centered">
@@ -133,31 +440,45 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
-            //                               $.ajax({
-            //                                      type: $(this).attr('method'), // get type of request from 'method'
-            //                                      url: $(this).attr('action'), // get url of request from 'action'
-            //                                      data: $(this).serialize(), // serialize the form's data
-            //                                      success: function(responseText) {
-            //                                      // if everything goes well, update the div with the response
-            //                                      $('#result').html(responseText);
-            //                                      },
-            //                                      error: function() {alert("Failed!")}
-            //                                      });
             $(function() {
-              var btnClicked = undefined;
-              $('#studreg').find("button[name=regButton]").click(function(evt) {
-                                                                 btnClicked = evt.target.value;
-                                                                 });
-              $('#studreg').submit(function(evt) {
-                                   if (btnClicked === "Register") {
-                                   window.localStorage.setItem("login", "Bon Jovi");
-                                   //                                   the ajax call should go here
-                                   window.location.replace("progstat.html");
-                                   } else {
-                                   window.location.replace("index.html");
-                                   }
-                                   return false;
-                                   });
+              $('form').submit(function() {return false;});
+              $('#survey-submit-1').click(function(){
+                                          $('#survey-prog').css('width', '14.28%');
+                                          $('#survey-step-1').slideUp();
+                                          $('#survey-step-2').slideDown();
+                                          });
+              $('#survey-submit-2').click(function(){
+                                          $('#survey-prog').css('width', '28.56%');
+                                          $('#survey-step-2').slideUp();
+                                          $('#survey-step-3').slideDown();
+                                          });
+              $('#survey-submit-3').click(function(){
+                                          $('#survey-prog').css('width', '42.84%');
+                                          $('#survey-step-3').slideUp();
+                                          $('#survey-step-4').slideDown();
+                                          });
+              $('#survey-submit-4').click(function(){
+                                          $('#survey-prog').css('width', '57.12%');
+                                          $('#survey-step-4').slideUp();
+                                          $('#survey-step-5').slideDown();
+                                          });
+              $('#survey-submit-5').click(function(){
+                                          $('#survey-prog').css('width', '71.4%');
+                                          $('#survey-step-5').slideUp();
+                                          $('#survey-step-6').slideDown();
+                                          });
+              $('#survey-submit-6').click(function(){
+                                          $('#survey-prog').css('width', '85.68%');
+                                          $('#survey-step-6').slideUp();
+                                          $('#survey-step-7').slideDown();
+                                          });
+              $('#survey-submit-7').click(function(){
+                                          $('#survey-prog').css('width', '100%');
+                                          window.localStorage.setItem("survey", "completed");
+//                                          the ajax call will go here
+                                          window.location.replace("index.html");
+                                          });
+
               });
             </script>
     </body>
