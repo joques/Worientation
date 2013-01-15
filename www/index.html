@@ -141,8 +141,8 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-//            window.localStorage.removeItem("login");
-//            window.localStorage.removeItem("survey");
+            window.localStorage.removeItem("login");
+            window.localStorage.removeItem("survey");
             var loginVal = window.localStorage.getItem("login");
             if (! loginVal) {
                 $('.download-info').find('#registerBtn').show();
@@ -152,7 +152,7 @@
             }
             var curDate = new Date();
             curDate.setHours(0,0,0,0);
-            var surveyDateStr = "2013/01/30";
+            var surveyDateStr = "2013/01/15";
             var surveyDate = new Date(surveyDateStr);
             var surveyCompleted = window.localStorage.getItem("survey");
             if ((curDate.getTime() >= surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
