@@ -44,19 +44,19 @@
                                 <div class="control-group">
                                     <label class="control-label" for="text-name">Name</label>
                                     <div class="controls">
-                                        <input class="span3" id="text-name-1" name="fname" type="text" placeholder="Name"/>
+                                        <input class="span3" id="text-name-1" name="firstname" type="text" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="text-surname">Surname</label>
                                     <div class="controls">
-                                        <input class="span3" id="text-surname-1" name="lname" type="text" placeholder="Surname"/>
+                                        <input class="span3" id="text-surname-1" name="lastname" type="text" placeholder="Surname"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="text-number">Student Number</label>
                                     <div class="controls">
-                                        <input class="span3" id="text-number-1" name="studid" type="text" placeholder="Student Number"/>
+                                        <input class="span3" id="text-number-1" name="studnum" type="text" placeholder="Student Number"/>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -93,19 +93,14 @@
             </div>
         </footer>
         <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            //                               $.ajax({
-            //                                      type: $(this).attr('method'), // get type of request from 'method'
-            //                                      url: $(this).attr('action'), // get url of request from 'action'
-            //                                      data: $(this).serialize(), // serialize the form's data
-            //                                      success: function(responseText) {
-            //                                      // if everything goes well, update the div with the response
-            //                                      $('#result').html(responseText);
-            //                                      },
-            //                                      error: function() {alert("Failed!")}
-            //                                      });
+        <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery-mobile.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).bind("mobileinit", function(){
+                                $.support.cors = true;
+                                $.mobile.allowCrossDomainPages = true;
+                             });
             $(function() {
               var btnClicked = undefined;
               $('#studreg').find("button[name=regButton]").click(function(evt) {
@@ -119,7 +114,40 @@
                                    var fullName = name + " " + surname;
                                    window.localStorage.setItem("login", fullName);
                                    }
-//                                   the ajax call should go here
+                                   alert(fullName);
+                                   alert("starting the ajax call");
+                                                                      
+//                                   $.ajax({
+//                                          
+//                                          type: 'post',
+//                                          data: $('#studreg').serialize(),
+//                                          dataType: 'json',
+//                                          cache: false,
+//                                          timeout: 3000,
+//                                          error: function(xhr, status, errorThrown){
+//                                          if (xhr.status == 0) {alert("Well that's fine!")} else {
+//                                            alert("error");
+//                                            alert(xhr.status);
+//                                            alert("Error type :"+errorThrown);
+//                                          alert("Error message :"+xhr.responseText); }
+//                                          },
+//                                          success: function(fullName) {alert("it works!"); alert(fullName);}
+//                                   });
+                                   
+                                   var req = new XMLHttpRequest();
+                                   req.open("POST", "http://ilara.local:8000/registration", true);
+                                   req.responseType = "text";
+                                   req.withCredentials = true;
+                                   req.onreadystatechange = function(){
+                                   if (req.readyState == 4) {
+                                    if ((req.status == 200) || (req.status == 0)) {
+                                        alert(req.responseText);
+                                   for(prop in req) alert(" " + prop + " = " + req[prop]);
+                                    }
+                                   }
+                                   }
+                                   req.send($('#studreg').serialize());
+                                   
                                     window.location.replace("progstat.html");
                                    } else {
                                     window.location.replace("index.html");
