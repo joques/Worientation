@@ -171,27 +171,27 @@
 			// Activating the programme button
 			$('.download-info').find('#programmeBtn').show();
 
-
-			// Activating the survey button
-            var curDate = new Date();
-            curDate.setHours(0,0,0,0);
-            var surveyDateStr = "2013/02/06";
-            var surveyDate = new Date(surveyDateStr);
-            var surveyCompleted = window.localStorage.getItem("survey");
-            if ((curDate.getTime() >= surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
-                $('.download-info').find('#surveyBtn').show();
-            }
-			$('form').submit(function() {return false;});
-
-			$('#continue-disclaimer').click(function(){
-				var myStudId = $('#stdnum-disclaimer').val();
-				if (myStudId.length == 0) {
-					$('#surveyModal').modal().hide();
-				} else {
-					window.localStorage.setItem("studID-4-survey", myStudId);
-					window.location.replace("survey.html");
-				}
-            });			
+			// 
+			// // Activating the survey button
+			//             var curDate = new Date();
+			//             curDate.setHours(0,0,0,0);
+			//             var surveyDateStr = "2013/02/06";
+			//             var surveyDate = new Date(surveyDateStr);
+			//             var surveyCompleted = window.localStorage.getItem("survey");
+			//             if ((curDate.getTime() >= surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
+			//                 $('.download-info').find('#surveyBtn').show();
+			//             }
+			// $('form').submit(function() {return false;});
+			// 
+			// $('#continue-disclaimer').click(function(){
+			// 	var myStudId = $('#stdnum-disclaimer').val();
+			// 	if (myStudId.length == 0) {
+			// 		$('#surveyModal').modal().hide();
+			// 	} else {
+			// 		window.localStorage.setItem("studID-4-survey", myStudId);
+			// 		window.location.replace("survey.html");
+			// 	}
+			//             });			
         </script>
     </body>
 </html>

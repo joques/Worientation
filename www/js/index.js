@@ -16,7 +16,6 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-<<<<<<< HEAD
  $(window).resize(function() {
     clearTimeout(this.id);
     this.id = setTimeout(doneResizing, 500);
@@ -26,8 +25,6 @@ function doneResizing(){
   location.reload();
 } 
  
-=======
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 var app = {
     // Application Constructor
     initialize: function() {
@@ -40,10 +37,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-<<<<<<< HEAD
-=======
-//        window.localStorage.removeItem("login");
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
     },
     // deviceready Event Handler
     //
@@ -52,24 +45,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
-<<<<<<< HEAD
-
-		// Update DOM on a Received Event
-=======
-    // Update DOM on a Received Event
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    },
-<<<<<<< HEAD
-					
+	
 	// getHeight: function(){
 	// if (document.body && document.body.offsetWidth) {
 	//               winW = document.body.offsetWidth;
@@ -86,8 +62,25 @@ var app = {
 	//               }
 	// 		  return winH;
 	// },
-=======
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    },
+		
+		background: function() {
+			console.log("Notification from background");
+		},
+		
+		running: function() {
+			console.log("Notification while running");
+		},
     
     fillFacultyProgramme: function(facultyName) {
         //generate the date and pass it as an argument
@@ -1384,11 +1377,7 @@ var app = {
         }
         
         programmeStr = programmeStr.concat("<div class=\"scroller\" id=\"pscroller\">");
-<<<<<<< HEAD
         programmeStr = programmeStr.concat("<div class=\"hidden-tablet hidden-desktop\">");
-=======
-        programmeStr = programmeStr.concat("<div class=\"hidden-tablet\">");
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         if (isFaculty) {
             programmeStr = programmeStr.concat("<a href=" + linkToProg + " class=\"pull-left\">Faculty Programme</a>");
         } else {
@@ -1478,7 +1467,6 @@ var app = {
     
     generateProgTableAMContent: function(programmeData, viewDate){
         return this.generateProgTableContent(programmeData, viewDate, true);
-<<<<<<< HEAD
     },
 	
 	// findPosX : function(obj){
@@ -1511,7 +1499,4 @@ var app = {
 	//         curtop += obj.y;
 	//     return curtop;
 	//   }
-=======
-    }
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 };
