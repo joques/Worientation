@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container hidden-phone" id="headProg">
+                <header class="hero-unit hidden-phone red-or">
+                    <h1> Orientation Programme 2013</h1>
+                </header>
+            </div>
+            <div class="container clearfix">
+                <div class="row-fluid">
+                    <div class="hidden-tablet hidden-desktop btn-toolbar">
+                        <a class="btn btn-link btn-mini pull-left" href="quick-notifications.html">Hot News</a>
+                        <a class="btn btn-link btn-mini" href="map.html">Access Map</a>
+                        <a class="btn btn-link btn-mini pull-right" href="index.html">Home</a>
+                    </div>
+                    <div class="hidden-phone btn-toolbar">
+                        <a class="btn btn-link btn-large pull-left" href="quick-notifications.html">Hot News</a>
+                        <a class="btn btn-link btn-large" href="map.html">Access Map</a>
+                        <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                    </div>
+                </div>
+                <div class="well">
+                    <select class="span6" id="selFaculty">
+                        <option value="engineering">Engineering &amp; the Built Environment</option>
+                        <option value="commerce">Commerce, Law &amp; Management</option>
+                        <option value="science">Science</option>
+                        <option value="healthsc">Health Sciences</option>
+                        <option value="humanities">Humanities</option>
+                        <option value="general">General</option>
+                        <option value="sport">Sport</option>
+                        <option value="international">Wits International Office</option>
+                        <option selected="selected" value="healthsc">Select your Programme</option>
+                    </select>
+                </div>
+                <div class="container">
+                    <div class="well" style="display: none;" id="facprog">
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered" id="footProg">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/core/jquery.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/calendar.js"></script>
+        <script type="text/javascript">
+            var scrollObj;
+            function loadScroll() {
+                document.addEventListener('touchmove', function(e){scrollObj.refresh(); e.preventDefault(); });
+                scrollObj = new iScroll('facprog', {checkDOMChanges: false});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+            $(function() { // wait for the DOM to be ready
+				
+              $('#selFaculty').change(function() {
+                                      var facultyName = $('#selFaculty').val();
+                                      var progDetails = app.fillFacultyProgramme(facultyName);
+                                      var myElem = $('#facprog');
+                                      myElem.show();
+                                      myElem.empty();
+                                      myElem.append(progDetails);
+                                      scrollObj = new iScroll('facprog');
+                                      $("[rel=popover]").popover({placement: 'top', offset: 10});
+                                      });
+              });
+        </script>        
+    </body>
+</html>

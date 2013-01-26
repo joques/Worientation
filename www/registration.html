@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container">
+                <header class="masthead">
+                </header>
+            </div>
+            <div class="container">
+                <div class="span8 offset2">
+                    <div class="hero-unit">
+                        <form class="form-horizontal" method="post" id="studreg">
+                            <h2>Registration</h2>
+                            <p>Please enter your details to register for notifications</p>
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-name">Name*</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-name-1" name="firstname" type="text" autofocus="on" placeholder="Name"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-surname">Surname*</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-surname-1" name="lastname" type="text" placeholder="Surname"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-number">Student Number</label>
+                                    <div class="controls">
+                                        <input class="span3" id="text-stud-number-1" name="studnum" type="text" placeholder="Student Number"/>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="text-faculty">Faculty</label>
+                                    <div class="controls">
+                                        <select name="facId" id="facId">
+                                            <option selected="selected" value="healthsc">Health Sciences</option>
+                                            <option value="humanities">Humanities</option>
+                                            <option value="commerce">Commerce, Law &amp; Management</option>
+                                            <option value="engineering">Engineering &amp; Built Environment</option>
+                                            <option value="science">Science</option>
+                                        </select>
+                                    </div>
+                                </div>
+								<div class="control-group">
+									<label class="checkbox">
+									  <input type="checkbox" name="firstyear" id="firstyear" value="first year">
+										<a class="btn btn-link btn-mini" href="#firstYEModal" data-toggle="modal" title="First Year Experience" id="firstYearE">Would you like to register for the First Year Experience?</a>
+									</label>
+								</div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="control-group pull-right">
+                                    <div class="controls form-inline">
+                                        <button class="btn btn-primary" type="submit" name="regButton" value="Register">Register</button>
+                                        <button class="btn btn-inverse" type="submit" name="regButton" value="Cancel">Cancel</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+			<div class="modal hide" id="firstYEModal">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">X</button>
+					<h3 class="text-error">First Year Experience</h3>
+				</div>
+				<div class="modal-body">
+					<p class="text-info">The First Year Experience is an assistance provided to students in order to fill in the gap in ...</p>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+		<script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+		<script type="text/javascript" src="js/core/jquery.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap-modal.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            $(function() {
+				var btnClicked = undefined;
+				$('#studreg').find("button[name=regButton]").click(function(evt) {
+					btnClicked = evt.target.value;
+				});
+				
+				$('#studreg').submit(function(evt) {
+					evt.preventDefault();
+					if (btnClicked === "Register") {
+						var name = $('#text-name-1').val();
+						var surname = $('#text-surname-1').val();
+						var id4Survey = $('#text-stud-number-1').val();
+						if (id4Survey.length > 0) {
+							window.localStorage.setItem("studID-4-survey", id4Survey);
+						}
+						if ((name.length > 0) && (surname.length > 0)) {
+							var fullName = name + " " + surname;
+							window.localStorage.setItem("login", fullName);
+							// window.location.replace("progstat.html")
+							$.ajax({
+								// url: 'http://ilara.local:8001/registration',
+								url: 'http://hisdmv1.cs.wits.ac.za:8089/WitsOrientation/Registrationjsonp/',
+								dataType: 'jsonp',
+								crossDomain: true,
+								// jsonp: 'callback',
+								jsonpCallback: "localJsonpCallback",
+								data: $('#studreg').serialize(),
+								cache: false,
+								timeout: 5000,
+								complete: function(){window.location.replace("progstat.html");},
+								error: function(){console.log("An error occurred"); window.localStorage.removeItem("survey");},
+								success: function(data, success) {console.log("success! wait for your result"); console.log(data);}
+							});
+						}
+					} else {
+						window.location.replace("index.html")
+					}
+					
+					return false;
+				});
+              });
+        </script>
+    </body>
+</html>

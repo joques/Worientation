@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container hidden-phone" id="headProg">
+                <header class="hero-unit red-or">
+                    <h1 style="color: #ffffff; font-size: 45px;">Wits <strong>International Office</strong></h1>
+                </header>
+            </div>
+            <div class="container clearfix">
+                <div class="well hidden-tablet hidden-desktop">
+                    <a class="btn btn-link btn-mini pull-left" href="orientation-prog.html">Orientation</a>
+                    <a class="btn btn-link btn-mini" href="map.html">Access Map</a>
+                    <a class="btn btn-link btn-mini pull-right" href="index.html">Home</a>
+                </div>
+                <div class="well hidden-phone">
+                    <a class="btn btn-link btn-large pull-left" href="orientation-prog.html">Orientation Programme</a>
+                    <a class="btn btn-link btn-large" href="map.html">Access Map</a>
+                    <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                </div>
+                <div class="container">
+                    <div class="well" id="intprog">
+                        <div class="scroller" id="intpscroller">
+                            <div style="padding-bottom: 30px;">
+                                <table class="table table-hover table-bordered">
+                                    <caption>Wednesday, 06 February 2013 - Friday, <a href=\"map.html#centralblock">CB15, Ground Floor, Central Block<a></caption>
+                                    <thead>
+                                        <th>Time</th>
+                                        <th>Event</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="info">
+                                            <td>14:00-14:15</td>
+                                            <td><a class="progevt" rel="popover" data-content="Wits International Office">Wits International Office (WIO)</a></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>14:15-14:45</td>
+                                            <td><a class="progevt" rel="popover" data-content="Medical Aid providers">Medical Aid providers</a></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>14:45-15:00</td>
+                                            <td><a class="progevt" rel="popover" data-content="Discussing Foreign Exchange/Bank representative">Foreign Exchange/Bank representative</a></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>14:15-14:45</td>
+                                            <td><a class="progevt" rel="popover" data-content="Student Representative Council">SRC/Student Associations</a></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>15:15-15:30</td>
+                                            <td><a class="progevt" rel="popover" data-content="Opportunities for studying abroad">Study abroad opportunities</a></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td>15:30-16:00</td>
+                                            <td><a class="progevt" rel="popover" data-content="Safety &amp; security">Safety &amp; security</a></td>
+                                        </tr>
+                                        <tr class="info">
+                                            <td>16:00-17:00</td>
+                                            <td><a class="progevt" rel="popover" data-content="Wrapping up discussion with International Office">Closure</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+            </div>
+            <footer class="footer pagination-centered" id="footProg">
+                <div class="container">
+                    <p>Witsie 4 Life!</p>
+                    <img src="img/wits-logo.png" width=30 height=30/>
+                </div>
+            </footer>
+            <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+            <script type="text/javascript" src="js/iscroll.js"></script>
+            <script type="text/javascript" src="js/core/jquery.js"></script>
+            <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+            <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+            <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript">
+                var scrollObj;
+                function loadScroll() {
+                    // document.addEventListener('touchmove', function(e){ scrollObj.refresh(); e.preventDefault(); });
+                    scrollObj = new iScroll('intprog', {checkDOMChanges: false});
+                }
+                document.addEventListener('DOMContentLoaded', loadScroll);
+                $(function() { // wait for the DOM to be ready
+                  $("[rel=popover]").popover({placement: 'bottom', offset: 10});
+                  });
+                </script>
+            </body>
+</html>

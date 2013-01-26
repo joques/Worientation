@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
+        <title>Orientation</title>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container hidden-phone" id="headProg">
+                <header class="hero-unit red-or">
+                    <h1>Quick Notifications</h1>
+                </header>
+            </div>
+            <div class="container clearfix">
+                <div class="row-fluid">
+                    <div class="btn-toolbar">
+                        <a class="btn btn-link btn-large pull-right" href="index.html">Home</a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="well" id="quicknot">
+                    </div>
+                </div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <footer class="footer pagination-centered" id="footProg">
+            <div class="container">
+                <p>Witsie 4 Life!</p>
+                <img src="img/wits-logo.png" width=30 height=30/>
+            </div>
+        </footer>
+        <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/core/jquery.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            var scrollObj;
+            function loadScroll() {
+                document.addEventListener('touchmove', function(e){scrollObj.refresh(); e.preventDefault(); });
+                scrollObj = new iScroll('quicknot', {checkDOMChanges: true});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+            $(function() {
+              var quickProgramme = {
+				"2013/1/26": [
+				{
+					completeStartTime: "2013/01/26 08:00",
+                    startTime: "08:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Health Sciences",
+                    eventTitle: "Registration",
+                    eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+                    eventVenue: "Student Enrollment Centre, Senate House Ground Floor"
+				}
+				],
+				"2013/1/28": [
+				{
+					completeStartTime: "2013/01/28 08:30",
+                    startTime: "08:30",
+                    endTime: "9:00",
+                    organizer: "Faculty of Health Sciences",
+                    eventTitle: "Overview of professions in Health Sciences",
+                    eventDesc: "Opportunity to meet academics, students and professionals in Health sciences",
+                    eventVenue: "Medical School, Lecture Theatre 3, 5th Floor"
+				},
+				{
+	                completeStartTime: "2013/01/28 14:30",
+					startTime: "14:30",
+					endTime: "15:30",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Meet and greet the Physiotherapy Department",
+					eventDesc: "Put a description here",
+					eventVenue: "Medical School Room 5A08, 5th  Floor"
+	              },
+				{
+	                completeStartTime: "2013/01/28 09:00",
+					startTime: "09:30",
+					endTime: "10:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Addresses (by Dean of Humanities and Dean of Students)",
+					eventDesc: "",
+					eventVenue: "Wits Great Hall"
+	              },
+				  {
+		           	completeStartTime: "2013/01/28 09:00",
+				   	startTime: "09:30",
+					endTime: "10:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Planning an exciting BA Curriculum",
+					eventDesc: "How nice to study Art",
+					eventVenue: "Wits Great Hall"
+		          },
+				 {
+		           	completeStartTime: "2013/01/28 11:15",
+				   	startTime: "11:15",
+					endTime: "13:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Where Literature, Language and Media meet",
+					eventDesc: "",
+					eventVenue: "Senate House Ground Floor SH6"
+		          },
+				  {
+			       	completeStartTime: "2013/01/28 11:00",
+					startTime: "11:00",
+					endTime: "12:30",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Music Programme",
+					eventDesc: "",
+					eventVenue: "Wits Theatre"
+			       },
+					{
+				       	completeStartTime: "2013/01/28 11:00",
+						startTime: "11:00",
+						endTime: "12:00",
+						organizer: "Faculty of Humanities",
+						eventTitle: "Meet and greet School of Education",
+						eventDesc: "Buses depart from Amic Deck",
+						eventVenue: "Education Campus, Liner Auditorium"
+				       }
+				],
+				"2013/1/29": [
+				{
+			       	completeStartTime: "2013/01/29 9:00",
+					startTime: "09:00",
+					endTime: "10:00",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Introduction to Nursing",
+					eventDesc: "",
+					eventVenue: "Medical School, Room 5A08, 5th Floor"
+			     },
+				{
+			       	completeStartTime: "2013/01/29 10:00",
+					startTime: "10:00",
+					endTime: "11:00",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Tour of Dental School",
+					eventDesc: "",
+					eventVenue: "Orange Block,  8th Floor Charlotte Maxeke Hospital"
+			     },
+				{
+			       	completeStartTime: "2013/01/29 09:00",
+					startTime: "09:00",
+					endTime: "11:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Where Literature, Language and Media Meet",
+					eventDesc: "",
+					eventVenue: "Senate House, Ground Floor SH6"
+			     },
+				{
+			       	completeStartTime: "2013/01/29 11:00",
+					startTime: "11:00",
+					endTime: "12:30",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Music Programme",
+					eventDesc: "",
+					eventVenue: "Wits Theatre"
+			     }
+				],
+				"2013/1/30": [
+				{
+			       	completeStartTime: "2013/01/30 11:30",
+					startTime: "11:30",
+					endTime: "13:00",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Introductory lecture and departmental tour for Pharmacy students",
+					eventDesc: "",
+					eventVenue: "Medical School, Room 5A08, 5th Floor"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 13:00",
+					startTime: "13:00",
+					endTime: "14:00",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Meet the Dean of the Faculty of Health Sciences",
+					eventDesc: "",
+					eventVenue: "Cafeteria Foyer, Medical School"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 14:00",
+					startTime: "14:00",
+					endTime: "15:00",
+					organizer: "Faculty of Health Sciences",
+					eventTitle: "Address by the Dean of the Faculty and Dean of Students",
+					eventDesc: "",
+					eventVenue: "Charlotte Maxeke Hospital"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 08:00",
+					startTime: "08:00",
+					endTime: "16:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Registration Bachelor of Education",
+					eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+					eventVenue: "Student Enrollment Centre, Senate House, Ground Floor"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 08:00",
+					startTime: "08:00",
+					endTime: "16:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Curriculum planning for Bachelor of Arts",
+					eventDesc: "",
+					eventVenue: "Umthobo Building, East Campus"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 09:30",
+					startTime: "09:30",
+					endTime: "10:30",
+					organizer: "Faculty of Commerce, Law and Management",
+					eventTitle: "Reasons to pursue a vocation in Law",
+					eventDesc: "",
+					eventVenue: "New Commerce Building, West Campus"
+			     },
+				{
+			       	completeStartTime: "2013/01/30 11:00",
+					startTime: "11:00",
+					endTime: "12:00",
+					organizer: "Faculty of Commerce, Law and Management",
+					eventTitle: "Skills and Career Development",
+					eventDesc: "",
+					eventVenue: "FNB 101, West Campus"
+			     }
+				],
+				"2013/1/31": [
+				{
+			       	completeStartTime: "2013/01/31 08:00",
+					startTime: "08:00",
+					endTime: "16:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Registration for Faculty of Humanities (BA and Professional degrees)",
+					eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+					eventVenue: "Student Enrollment Centre, Senate House Ground Floor"
+			     },
+				{
+			       	completeStartTime: "2013/01/31 08:00",
+					startTime: "08:00",
+					endTime: "16:00",
+					organizer: "Faculty of Humanities",
+					eventTitle: "Curriculum planning",
+					eventDesc: "",
+					eventVenue: "Exams Hall"
+			     },
+				{
+					completeStartTime: "2013/01/31 09:30",
+                    startTime: "09:30",
+                    endTime: "10:15",
+                    organizer: "Faculty of Engineering &amp; Built environment",
+                    eventTitle: "A brief look at civilization",
+                    eventDesc: "Some more description about civilization",
+                    eventVenue: "Chamber of Mines, Lecture Theatre 2"
+				},
+				{
+					completeStartTime: "2013/01/31 10:30",
+                    startTime: "10:30",
+                    endTime: "11:15",
+                    organizer: "Faculty of Engineering &amp; Built environment",
+                    eventTitle: "Why mining",
+                    eventDesc: "Some more description about civilization",
+                    eventVenue: "Chamber of Mines, Lecture Theatre 2"
+				},
+				{
+					completeStartTime: "2013/01/31 15:00",
+                    startTime: "15:00",
+                    endTime: "15:45",
+                    organizer: "Faculty of Engineering &amp; Built environment",
+                    eventTitle: "The challenges facing the Planner of the 21st century",
+                    eventDesc: "",
+                    eventVenue: "School of Architecture and Planning, Lecture Theatre 1"
+				},
+				{
+					completeStartTime: "2013/01/31 09:00",
+                    startTime: "09:00",
+                    endTime: "10:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Bachelor of Accounting Sciences",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/01/31 11:00",
+                    startTime: "11:00",
+                    endTime: "12:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Bachelor of Commerce and Economic Sciences",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				}
+				],
+				"2013/2/1": [
+				{
+					completeStartTime: "2013/2/1 09:30",
+                    startTime: "09:30",
+                    endTime: "10:15",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Armed response, architectural manoeuvres in Johannesburg",
+                    eventDesc: "",
+                    eventVenue: "School of Architecture and Planning, Lecture Theatre 1"
+				},
+				{
+					completeStartTime: "2013/2/1 12:30",
+                    startTime: "12:30",
+                    endTime: "13:15",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Intelligent equipment in road building",
+                    eventDesc: "",
+                    eventVenue: "Chamber of Mines, Lecture Theatre 2"
+				},
+				{
+					completeStartTime: "2013/2/1 09:30",
+                    startTime: "09:30",
+                    endTime: "10:15",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Fukushima: Engineering success or engineering failure",
+                    eventDesc: "",
+                    eventVenue: "Chamber of Mines, Lecture Theatre 2"
+				},
+				{
+					completeStartTime: "2013/2/1 08:00",
+                    startTime: "08:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Registration of Bachelor of Commerce and Economic Science",
+                    eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+                    eventVenue: "Student Enrollment Centre, Ground Floor, Senate House"
+				},
+				{
+					completeStartTime: "2013/2/1 09:00",
+                    startTime: "09:00",
+                    endTime: "09:45",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Addresses by the Dean of Faculty of Science and the Dean of Students",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/1 10:00",
+                    startTime: "10:00",
+                    endTime: "11:30",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Mathematical sciences: find out more",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/1 11:45",
+                    startTime: "11:45",
+                    endTime: "13:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Physical sciences: find out more",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/1 14:00",
+                    startTime: "14:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "The fun side of side",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Auditorium 2"
+				}
+				],
+				"2013/2/2": [
+				{
+					completeStartTime: "2013/2/2 08:00",
+                    startTime: "08:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Registration",
+                    eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+                    eventVenue: "Student Enrollment Centre, Ground Floor, Senate House"
+				}
+				],
+				"2013/2/3": [
+				{
+					completeStartTime: "2013/2/3 11:00",
+                    startTime: "11:00",
+                    endTime: "15:00",
+                    organizer: "General",
+                    eventTitle: "Welcome day",
+                    eventDesc: "",
+                    eventVenue: "The Plazza"
+				}
+				],
+				"2013/2/4": [
+				{
+					completeStartTime: "2013/2/4 08:30",
+                    startTime: "08:30",
+                    endTime: "09:45",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Addresses by the Dean of the Faculty of Engineering and Built Environment and the Dean of Students",
+                    eventDesc: "",
+                    eventVenue: "Wits Great Hall"
+				},
+				{
+					completeStartTime: "2013/2/4 14:00",
+                    startTime: "14:00",
+                    endTime: "17:00",
+                    organizer: "Faculty of Engineering and Built Environment",
+                    eventTitle: "Diagnostic tests",
+                    eventDesc: "",
+                    eventVenue: "See faculty programme"
+				},
+				{
+					completeStartTime: "2013/2/4 08:00",
+                    startTime: "08:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Registration of Bachelor of Laws and Accounting",
+                    eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+                    eventVenue: "Student Enrollment Centre, Ground Floor, Senate House"
+				},
+				{
+					completeStartTime: "2013/2/4 09:00",
+                    startTime: "09:00",
+                    endTime: "09:30",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Smart living",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/4 09:30",
+                    startTime: "09:30",
+                    endTime: "10:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Note Taking",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium Auditorium 1"
+				},
+				{
+					completeStartTime: "2013/2/4 10:30",
+                    startTime: "10:30",
+                    endTime: "11:30",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Earth Sciences: find out more",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/4 10:30",
+                    startTime: "11:45",
+                    endTime: "13:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Biological Sciences: find out more",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/4 17:00",
+                    startTime: "17:00",
+                    endTime: "",
+                    organizer: "Sport",
+                    eventTitle: "Back your Boytjies",
+                    eventDesc: "",
+                    eventVenue: "Rugby Stadium"
+				},
+				{
+					completeStartTime: "2013/2/4 14:00",
+                    startTime: "14:00",
+                    endTime: "16:00",
+                    organizer: "Sport",
+                    eventTitle: "Volley ball, basket ball and water polo",
+                    eventDesc: "",
+                    eventVenue: "Pool and Matrix court area"
+				},
+				{
+					completeStartTime: "2013/2/4 18:00",
+                    startTime: "18:00",
+                    endTime: "24:00",
+                    organizer: "Night Owls",
+                    eventTitle: "Street party",
+                    eventDesc: "",
+                    eventVenue: "The Street, Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/4 12:30",
+                    startTime: "12:30",
+                    endTime: "14:30",
+                    organizer: "General",
+                    eventTitle: "Food fair and Rea Vaya",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/4 09:00",
+                    startTime: "09:00",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "Basic computer skills",
+                    eventDesc: "",
+                    eventVenue: "FNB Computer Lab"
+				},
+				{
+					completeStartTime: "2013/2/4 11:40",
+                    startTime: "11:40",
+                    endTime: "13:00",
+                    organizer: "General",
+                    eventTitle: "Campus tours",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/4 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Mastering Life @ Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/4 09:20",
+                    startTime: "09:20",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Practical matters: answers to difficult questions",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/4 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Fitness, friendship and fun",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/4 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Get involved: Life outside the classroom",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/4 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Making the transition to Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/4 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Wits safety and security session",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				}
+				],
+				"2013/2/5": [
+				{
+					completeStartTime: "2013/2/5 08:30",
+                    startTime: "08:30",
+                    endTime: "10:00",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Addresses by the Dean of the Faculty of Commerce, Law and Management and the Dean of Students",
+                    eventDesc: "",
+                    eventVenue: "Wits Great Hall"
+				},
+				{
+					completeStartTime: "2013/2/5 11:30",
+                    startTime: "11:30",
+                    endTime: "12:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Career paths",
+                    eventDesc: "",
+                    eventVenue: "New Commerce Building, NCB1"
+				},
+				{
+					completeStartTime: "2013/2/5 12:45",
+                    startTime: "12:45",
+                    endTime: "13:45",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Do and don&#146;s",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/2/5 13:45",
+                    startTime: "13:45",
+                    endTime: "14:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Collection of course packs for all students",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/2/5 08:00",
+                    startTime: "08:00",
+                    endTime: "16:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Registration",
+                    eventDesc: "Bring a copy of your ID book, your firm offer letter and proof of payment",
+                    eventVenue: "Student Enrollment Centre, Ground Floor, Senate House"
+				},
+				{
+					completeStartTime: "2013/2/5 14:00",
+                    startTime: "14:00",
+                    endTime: "16:00",
+                    organizer: "Sport",
+                    eventTitle: "Cricket, touch rugby, hockey, tennis and ultimate frisbee",
+                    eventDesc: "",
+                    eventVenue: "Walter Milton - Rugby Stadium and Tennis Courts"
+				},
+				{
+					completeStartTime: "2013/2/5 18:00",
+                    startTime: "18:00",
+                    endTime: "24:00",
+                    organizer: "Night Owls",
+                    eventTitle: "Silly burgers",
+                    eventDesc: "",
+                    eventVenue: "The Street, Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/5 12:30",
+                    startTime: "12:30",
+                    endTime: "14:30",
+                    organizer: "General",
+                    eventTitle: "Food fair and Rea Vaya",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/5 09:00",
+                    startTime: "09:00",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "Basic computer skills",
+                    eventDesc: "",
+                    eventVenue: "FNB Computer Lab"
+				},
+				{
+					completeStartTime: "2013/2/5 11:40",
+                    startTime: "11:40",
+                    endTime: "13:00",
+                    organizer: "General",
+                    eventTitle: "Campus tours",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/5 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Transitioning from High School to University",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 09:20",
+                    startTime: "09:20",
+                    endTime: "09:40",
+                    organizer: "General",
+                    eventTitle: "CCDU - who are we and what do we do?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 09:40",
+                    startTime: "09:40",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Student parking and transportation",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Sex, drugs and Rock n Roll",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Staying healthy - Student Health Services",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Social networking with a purpose",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Dont dis our ability",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/5 11:40",
+                    startTime: "11:40",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "What is Wits e?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				}
+				],
+				"2013/2/6": [
+				{
+					completeStartTime: "2013/2/6 08:30",
+                    startTime: "08:30",
+                    endTime: "10:00",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Legal dangers of social networking",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/2/6 11:30",
+                    startTime: "11:30",
+                    endTime: "12:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "How to use social media appropriately",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/2/6 13:45",
+                    startTime: "13:45",
+                    endTime: "14:30",
+                    organizer: "Faculty of Commerce, Law and Management",
+                    eventTitle: "Collection of course packs for all students",
+                    eventDesc: "",
+                    eventVenue: "FNB 101, West Campus"
+				},
+				{
+					completeStartTime: "2013/2/6 09:00",
+                    startTime: "09:00",
+                    endTime: "10:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Maintaining a good academic record",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 2"
+				},
+				{
+					completeStartTime: "2013/2/6 11:15",
+                    startTime: "11:15",
+                    endTime: "13:00",
+                    organizer: "Faculty of Science",
+                    eventTitle: "Basic mathematical skills",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 1 and 2"
+				},
+				{
+					completeStartTime: "2013/2/6 14:00",
+                    startTime: "14:00",
+                    endTime: "17:00",
+                    organizer: "International Office",
+                    eventTitle: "International students: welcome by International Office",
+                    eventDesc: "",
+                    eventVenue: "CB15, Ground Floor, Central Block"
+				},
+				{
+					completeStartTime: "2013/2/6 14:00",
+                    startTime: "14:00",
+                    endTime: "16:00",
+                    organizer: "Sport",
+                    eventTitle: "Indoor hockey, netball, fencing, table tennis, squash, aerobics, martial arts and golf",
+                    eventDesc: "",
+                    eventVenue: "Hall29, Dig Fields, Dojo, Squash Courts and Golf Driving Range"
+				},
+				{
+					completeStartTime: "2013/2/6 18:00",
+                    startTime: "18:00",
+                    endTime: "24:00",
+                    organizer: "Night Owls",
+                    eventTitle: "RAG",
+                    eventDesc: "",
+                    eventVenue: "The Street, Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/6 12:30",
+                    startTime: "12:30",
+                    endTime: "14:30",
+                    organizer: "General",
+                    eventTitle: "Food fair and Rea Vaya",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/6 09:00",
+                    startTime: "09:00",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "Basic computer skills",
+                    eventDesc: "",
+                    eventVenue: "FNB Computer Lab"
+				},
+				{
+					completeStartTime: "2013/2/6 11:40",
+                    startTime: "11:40",
+                    endTime: "13:00",
+                    organizer: "General",
+                    eventTitle: "Campus tours",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/6 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Mastering life at Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Transitioning from High School to University",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 5"
+				},
+				{
+					completeStartTime: "2013/2/6 09:20",
+                    startTime: "09:20",
+                    endTime: "09:40",
+                    organizer: "General",
+                    eventTitle: "CCDU - who are we and what do we do?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 5"
+				},
+				{
+					completeStartTime: "2013/2/6 09:00",
+                    startTime: "09:00",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Practical matters: answers to difficult questions",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 09:40",
+                    startTime: "09:40",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Student parking and transportation",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 5"
+				},
+				{
+					completeStartTime: "2013/2/6 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Fitness, friendship and fun",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Sex, drugs and Rock n Roll",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 5"
+				},
+				{
+					completeStartTime: "2013/2/6 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Staying healthy - Student Health Services",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Social networking with a purpose",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Dont dis our ability",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 11:40",
+                    startTime: "11:40",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "What is Wits e?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Get involved: Life outside the classroom",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Making the transition to Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Wits safety and security session",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				
+				],
+				"2013/2/7": [
+				{
+					completeStartTime: "2013/2/7 12:30",
+                    startTime: "12:30",
+                    endTime: "14:30",
+                    organizer: "General",
+                    eventTitle: "Food fair and Rea Vaya",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/7 09:00",
+                    startTime: "09:00",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "Basic computer skills",
+                    eventDesc: "",
+                    eventVenue: "FNB Computer Lab"
+				},
+				{
+					completeStartTime: "2013/2/7 11:40",
+                    startTime: "11:40",
+                    endTime: "13:00",
+                    organizer: "General",
+                    eventTitle: "Campus tours",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/7 14:00",
+                    startTime: "14:00",
+                    endTime: "16:00",
+                    organizer: "Sport",
+                    eventTitle: "Mountain sports, chess, snow ski and war games",
+                    eventDesc: "",
+                    eventVenue: "New Wits Science Stadium club Houses and Flower Hall"
+				},
+				{
+					completeStartTime: "2013/2/7 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Mastering life at Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 09:20",
+                    startTime: "09:20",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Practical matters: answers to difficult questions",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Fitness, friendship and fun",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Get involved: Life outside the classroom",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Making the transition to Wits",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Wits safety and security session",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/7 11:40",
+                    startTime: "11:40",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "What is Wits e?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				}
+				],
+				"2013/2/8": [
+				{
+					completeStartTime: "2013/2/8 12:30",
+                    startTime: "12:30",
+                    endTime: "14:30",
+                    organizer: "General",
+                    eventTitle: "Food fair and Rea Vaya",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/8 09:00",
+                    startTime: "09:00",
+                    endTime: "12:00",
+                    organizer: "General",
+                    eventTitle: "Basic computer skills",
+                    eventDesc: "",
+                    eventVenue: "FNB Computer Lab"
+				},
+				{
+					completeStartTime: "2013/2/8 11:40",
+                    startTime: "11:40",
+                    endTime: "13:00",
+                    organizer: "General",
+                    eventTitle: "Campus tours",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Wits Science Stadium"
+				},
+				{
+					completeStartTime: "2013/2/8 14:00",
+                    startTime: "10:00",
+                    endTime: "16:00",
+                    organizer: "Sport",
+                    eventTitle: "Tai chi, Kobujutsu, Karate, Tang soo do, Badmington, judo, gymnastics, underwater and boat",
+                    eventDesc: "Tours depart from Science Stadium",
+                    eventVenue: "Old Mutual Sports Hall and Pool Area"
+				},
+				{
+					completeStartTime: "2013/2/8 19:40",
+                    startTime: "19:00",
+                    endTime: "02:00",
+                    organizer: "Night Owls",
+                    eventTitle: "Freshers bash",
+                    eventDesc: "",
+                    eventVenue: "Chamber of Mines"
+				},
+				{
+					completeStartTime: "2013/2/8 09:00",
+                    startTime: "09:00",
+                    endTime: "09:20",
+                    organizer: "General",
+                    eventTitle: "Transitioning from High School to University",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/6 09:20",
+                    startTime: "09:20",
+                    endTime: "09:40",
+                    organizer: "General",
+                    eventTitle: "CCDU - who are we and what do we do?",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				
+				{
+					completeStartTime: "2013/2/8 09:40",
+                    startTime: "09:40",
+                    endTime: "10:00",
+                    organizer: "General",
+                    eventTitle: "Student parking and transportation",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/8 10:20",
+                    startTime: "10:20",
+                    endTime: "10:40",
+                    organizer: "General",
+                    eventTitle: "Sex, drugs and Rock n Roll",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/8 10:40",
+                    startTime: "10:40",
+                    endTime: "11:00",
+                    organizer: "General",
+                    eventTitle: "Staying healthy - Student Health Services",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/8 11:00",
+                    startTime: "11:00",
+                    endTime: "11:20",
+                    organizer: "General",
+                    eventTitle: "Social networking with a purpose",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				},
+				{
+					completeStartTime: "2013/2/8 11:20",
+                    startTime: "11:20",
+                    endTime: "11:40",
+                    organizer: "General",
+                    eventTitle: "Dont dis our ability",
+                    eventDesc: "",
+                    eventVenue: "Wits Science Stadium, Auditorium 4"
+				}
+				]
+              };
+              var curDate = new Date();
+              var curDateStr = "" + curDate.getFullYear() + "/" + (curDate.getMonth() + 1) + "/" + curDate.getDate();
+              var hotProgs = quickProgramme[curDateStr];
+              var hotContent = "";
+              hotContent = hotContent.concat("<div class=\"scroller\" id=\"qnscroller\">");
+              if ((typeof(hotProgs) == 'undefined') || (hotProgs == null) || (hotProgs.length == 0)) {
+                hotContent = hotContent.concat("<p class=\"pagination-centered\">No hot notification for this time</p>");
+              } else {
+                var hotProgDetails = "";
+                var j = 0;
+                for(var i = 0; i < hotProgs.length; i++) {
+                    var curHotProg = hotProgs[i];
+                    var curHotProgDnTStr = curHotProg.completeStartTime;
+                    var curHotProgDnT = new Date(curHotProgDnTStr);
+                    if ((curHotProgDnT.getTime() > curDate.getTime()) && (curHotProgDnT.getTime() - curDate.getTime() <= 1800000)) {
+                        if (j % 2 == 0) {
+                            hotProgDetails = hotProgDetails.concat("<tr class=\"info\">");
+                        } else {
+                            hotProgDetails = hotProgDetails.concat("<tr class=\"success\">");
+                        }
+                        hotProgDetails = hotProgDetails.concat("<td>" + curHotProg.startTime + "-" + curHotProg.endTime + "</td>");
+                        hotProgDetails = hotProgDetails.concat("<td class=\"hidden-phone\">" + curHotProg.organizer + "</td>")
+                        hotProgDetails = hotProgDetails.concat("<td><a rel=popover data-content=\"" + curHotProg.eventDesc + "\">" + curHotProg.eventTitle + "</a></td>");
+                        hotProgDetails = hotProgDetails.concat("<td>" + curHotProg.eventVenue + "</td>");
+                        hotProgDetails = hotProgDetails.concat("</tr>");
+                        j++;
+                    } else {continue;}
+                }
+                if (hotProgDetails.length == 0) {
+                    hotContent = hotContent.concat("<p class=\"pagination-centered\">No hot notification for this time</p>");
+                } else {
+                    hotContent = hotContent.concat("<table class=\"table table-hover table-bordered\">");
+                    hotContent = hotContent.concat("<caption><strong>Coming Soon...</strong></caption>");
+                    hotContent = hotContent.concat("<thead>");
+                    hotContent = hotContent.concat("<tr>");
+                    hotContent = hotContent.concat("<th>Time</th>");
+                    hotContent = hotContent.concat("<th class=\"hidden-phone\">Organizer</th>");
+                    hotContent = hotContent.concat("<th>Event</th>");
+                    hotContent = hotContent.concat("<th>Venue</th>");
+                    hotContent = hotContent.concat("</tr>");
+                    hotContent = hotContent.concat("</thead>");
+                    hotContent = hotContent.concat("<tbody>");
+                    hotContent = hotContent.concat(hotProgDetails);
+                    hotContent = hotContent.concat("</tbody>");
+                    hotContent = hotContent.concat("</table>");
+                }
+              }
+              hotContent = hotContent.concat("</div>");
+              var myElem = $('#quicknot');
+              myElem.empty();
+              myElem.append(hotContent);
+//              scrollObj = new iScroll('quicknot');
+              $("[rel=popover]").popover({placement: 'top', offset: 10});
+              });
+            </script>
+    </body>
+</html>
