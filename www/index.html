@@ -21,18 +21,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-<<<<<<< HEAD
         <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
-=======
-        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
-        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <title>Orientation</title>
     </head>
     <body>
@@ -40,11 +32,7 @@
             <div class="container">
                 <header class="jumbotron masthead">
                     <div class="hidden-phone">
-<<<<<<< HEAD
                         <img src="img/wits-logo.png" width=90 height=60/>
-=======
-                        <img src="img/wits-logo.png" width=30 height=10/>
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                         <h2> Orientation &amp; Registration</h2>
                         <h3>2013</h3>
                         <p>Your journey to becoming a Witsie begins here...</p>
@@ -52,19 +40,11 @@
                             <div class="btn-toolbar">
                                 <a class="btn btn-primary btn-large" style="display: none;" href="registration.html" title="Register" id="registerBtn">Register</a>
                                 <a class="btn btn-warning btn-large" style="display: none;" href="progstat.html" title="Programme" id="programmeBtn">Programme</a>
-<<<<<<< HEAD
                                 <a class="btn btn-success btn-large" style="display: none;" href="#surveyModal" data-toggle="modal" title="Survey" id="surveyBtn">Take a Survey</a>
                             </div>
                         </div>
                     </div>
                     <div class="hidden-tablet hidden-desktop">
-=======
-                                <a class="btn btn-success btn-large" style="display: none;" href="survey.html" title="Survey" id="surveyBtn">Take a Survey</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hidden-tablet">
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                         <h2>Orientation @ Wits</h2>
                         <div class="download-info">
                             <div class="btn-toolbar">
@@ -75,7 +55,6 @@
                     </div>
                 </header>
             </div>
-<<<<<<< HEAD
 			<div class="modal hide" id="surveyModal">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">X</button>
@@ -96,12 +75,6 @@
                 <p class="pagination-centered" style="margin-bottom: 40px;">Brought to you by the School of Computer Science, Office of the Registrar &amp; Division of Student Affairs, University of the Witswatersrand</p>
                 <div class="download-info pagination-centered">
                     <a class="btn btn-success btn-large" style="display: none;" href="#surveyModal" data-toggle="modal" title="Survey" id="surveyBtn">Take a Survey</a>
-=======
-            <div class="container hidden-tablet clearfix">
-                <p class="pagination-centered" style="margin-bottom: 40px;">Brought to you by the School of Computer Science, Office of the Registrar &amp; Division of Student Affairs, University of the Witswatersrand</p>
-                <div class="download-info pagination-centered">
-                    <a class="btn btn-success btn-large" style="display: none;" href="survey.html" title="Survey" id="surveyBtn">Take a Survey</a>
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                 </div>
             </div>
             <div class="container hidden-phone clearfix">
@@ -177,7 +150,6 @@
                 <p class="pull-left small hidden-tablet"></p>
             </div>
         </footer>
-<<<<<<< HEAD
         <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
         <script type="text/javascript" src="js/core/jquery.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap-modal.js"></script>
@@ -204,32 +176,11 @@
             var curDate = new Date();
             curDate.setHours(0,0,0,0);
             var surveyDateStr = "2013/02/06";
-=======
-        <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" charset="utf-8" src="phonegap/plugin/localNotification/localNotification.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-            window.localStorage.removeItem("login");
-            window.localStorage.removeItem("survey");
-            var loginVal = window.localStorage.getItem("login");
-            if (! loginVal) {
-                $('.download-info').find('#registerBtn').show();
-                $('.download-info').find('#programmeBtn').show();
-            } else {
-                $('.download-info').find('#programmeBtn').show();
-            }
-            var curDate = new Date();
-            curDate.setHours(0,0,0,0);
-            var surveyDateStr = "2013/01/15";
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             var surveyDate = new Date(surveyDateStr);
             var surveyCompleted = window.localStorage.getItem("survey");
             if ((curDate.getTime() >= surveyDate.getTime()) && ((! surveyCompleted) || (surveyCompleted != "completed"))){
                 $('.download-info').find('#surveyBtn').show();
             }
-<<<<<<< HEAD
 			$('form').submit(function() {return false;});
 
 			$('#continue-disclaimer').click(function(){
@@ -241,14 +192,6 @@
 					window.location.replace("survey.html");
 				}
             });			
-=======
-            
-            localNotification.add( "0", {
-                                  seconds: 4,
-                                  message: 'chaaaarrrliieeeee',
-                                  badge: 1
-                                  } );
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         </script>
     </body>
 </html>
