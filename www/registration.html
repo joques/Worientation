@@ -21,18 +21,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-<<<<<<< HEAD
         <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
-=======
-        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/orientation.css" />
-        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <title>Orientation</title>
     </head>
     <body>
@@ -41,11 +33,7 @@
                 <header class="masthead">
                 </header>
             </div>
-<<<<<<< HEAD
             <div class="container">
-=======
-            <div class="contain">
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                 <div class="span8 offset2">
                     <div class="hero-unit">
                         <form class="form-horizontal" method="post" id="studreg">
@@ -53,7 +41,6 @@
                             <p>Please enter your details to register for notifications</p>
                             <fieldset>
                                 <div class="control-group">
-<<<<<<< HEAD
                                     <label class="control-label" for="text-name">Name*</label>
                                     <div class="controls">
                                         <input class="span3" id="text-name-1" name="firstname" type="text" autofocus="on" placeholder="Name"/>
@@ -61,15 +48,6 @@
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="text-surname">Surname*</label>
-=======
-                                    <label class="control-label" for="text-name">Name</label>
-                                    <div class="controls">
-                                        <input class="span3" id="text-name-1" name="firstname" type="text" placeholder="Name"/>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label class="control-label" for="text-surname">Surname</label>
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                                     <div class="controls">
                                         <input class="span3" id="text-surname-1" name="lastname" type="text" placeholder="Surname"/>
                                     </div>
@@ -77,21 +55,13 @@
                                 <div class="control-group">
                                     <label class="control-label" for="text-number">Student Number</label>
                                     <div class="controls">
-<<<<<<< HEAD
                                         <input class="span3" id="text-stud-number-1" name="studnum" type="text" placeholder="Student Number"/>
-=======
-                                        <input class="span3" id="text-number-1" name="studnum" type="text" placeholder="Student Number"/>
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <label class="control-label" for="text-faculty">Faculty</label>
                                     <div class="controls">
-<<<<<<< HEAD
                                         <select name="facId" id="facId">
-=======
-                                        <select name="facId">
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                                             <option selected="selected" value="healthsc">Health Sciences</option>
                                             <option value="humanities">Humanities</option>
                                             <option value="commerce">Commerce, Law &amp; Management</option>
@@ -100,15 +70,12 @@
                                         </select>
                                     </div>
                                 </div>
-<<<<<<< HEAD
 								<div class="control-group">
 									<label class="checkbox">
 									  <input type="checkbox" name="firstyear" id="firstyear" value="first year">
 										<a class="btn btn-link btn-mini" href="#firstYEModal" data-toggle="modal" title="First Year Experience" id="firstYearE">Would you like to register for the First Year Experience?</a>
 									</label>
 								</div>
-=======
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                             </fieldset>
                             <fieldset>
                                 <div class="control-group pull-right">
@@ -122,7 +89,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
 			<div class="modal hide" id="firstYEModal">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">X</button>
@@ -133,8 +99,6 @@
 				</div>
 				<div class="modal-footer"></div>
 			</div>
-=======
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             <div class="push"></div>
         </div>
         <footer class="footer pagination-centered">
@@ -143,7 +107,6 @@
                 <img src="img/wits-logo.png" width=30 height=30/>
             </div>
         </footer>
-<<<<<<< HEAD
 		<script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
 		<script type="text/javascript" src="js/core/jquery.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap-modal.js"></script>
@@ -167,13 +130,10 @@
 						if ((name.length > 0) && (surname.length > 0)) {
 							var fullName = name + " " + surname;
 							window.localStorage.setItem("login", fullName);
-							// window.location.replace("progstat.html")
 							$.ajax({
-								// url: 'http://ilara.local:8001/registration',
 								url: 'http://hisdmv1.cs.wits.ac.za:8089/WitsOrientation/Registrationjsonp/',
 								dataType: 'jsonp',
 								crossDomain: true,
-								// jsonp: 'callback',
 								jsonpCallback: "localJsonpCallback",
 								data: $('#studreg').serialize(),
 								cache: false,
@@ -189,70 +149,6 @@
 					
 					return false;
 				});
-=======
-        <script type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/index.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/jquery-mobile.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
-        <script type="text/javascript" charset="utf-8">
-            $(document).bind("mobileinit", function(){
-                                $.support.cors = true;
-                                $.mobile.allowCrossDomainPages = true;
-                             });
-            $(function() {
-              var btnClicked = undefined;
-              $('#studreg').find("button[name=regButton]").click(function(evt) {
-                                                                 btnClicked = evt.target.value;
-                                                                 });
-              $('#studreg').submit(function(evt) {
-                                   if (btnClicked === "Register") {
-                                   var name = $('#text-name-1').val();
-                                   var surname = $('#text-surname-1').val();
-                                   if ((name.length > 0) && (surname.length > 0)) {
-                                   var fullName = name + " " + surname;
-                                   window.localStorage.setItem("login", fullName);
-                                   }
-                                   alert(fullName);
-                                   alert("starting the ajax call");
-                                                                      
-//                                   $.ajax({
-//                                          
-//                                          type: 'post',
-//                                          data: $('#studreg').serialize(),
-//                                          dataType: 'json',
-//                                          cache: false,
-//                                          timeout: 3000,
-//                                          error: function(xhr, status, errorThrown){
-//                                          if (xhr.status == 0) {alert("Well that's fine!")} else {
-//                                            alert("error");
-//                                            alert(xhr.status);
-//                                            alert("Error type :"+errorThrown);
-//                                          alert("Error message :"+xhr.responseText); }
-//                                          },
-//                                          success: function(fullName) {alert("it works!"); alert(fullName);}
-//                                   });
-                                   
-                                   var req = new XMLHttpRequest();
-                                   req.open("POST", "http://ilara.local:8000/registration", true);
-                                   req.responseType = "text";
-                                   req.withCredentials = true;
-                                   req.onreadystatechange = function(){
-                                   if (req.readyState == 4) {
-                                    if ((req.status == 200) || (req.status == 0)) {
-                                        alert(req.responseText);
-                                   for(prop in req) alert(" " + prop + " = " + req[prop]);
-                                    }
-                                   }
-                                   }
-                                   req.send($('#studreg').serialize());
-                                   
-                                    window.location.replace("progstat.html");
-                                   } else {
-                                    window.location.replace("index.html");
-                                   }
-                                   return false;
-                                   });
->>>>>>> defda03062e021e4b58df80a6af4bff378b61655
               });
         </script>
     </body>
