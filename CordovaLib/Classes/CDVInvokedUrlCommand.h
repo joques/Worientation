@@ -45,6 +45,7 @@
 // dict removed from it.
 - (void)legacyArguments:(NSMutableArray**)legacyArguments andDict:(NSMutableDictionary**)legacyDict;
 
+<<<<<<< HEAD
 // Returns the argument at the given index.
 // If index >= the number of arguments, returns nil.
 // If the argument at the given index is NSNull, returns nil.
@@ -54,4 +55,6 @@
 // Same as above, but returns defaultValue instead of nil, and if the argument is not of the expected class, returns defaultValue
 - (id)argumentAtIndex:(NSUInteger)index withDefault:(id)defaultValue andClass:(Class)aClass;
 
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @end

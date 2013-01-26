@@ -24,17 +24,26 @@
 #import "CDVInvokedUrlCommand.h"
 #import "CDVCommandDelegate.h"
 #import "CDVWhitelist.h"
+<<<<<<< HEAD
 #import "CDVScreenOrientationDelegate.h"
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 @class CDVCommandQueue;
 @class CDVCommandDelegateImpl;
 
+<<<<<<< HEAD
 @interface CDVViewController : UIViewController <UIWebViewDelegate, CDVScreenOrientationDelegate>{
     @protected
     CDVCommandDelegateImpl* _commandDelegate;
     @protected
     CDVCommandQueue* _commandQueue;
     NSString* _userAgent;
+=======
+@interface CDVViewController : UIViewController <UIWebViewDelegate>{
+    @private
+    CDVCommandDelegateImpl* _commandDelegate;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 }
 
 @property (nonatomic, strong) IBOutlet CDVCordovaView* webView;
@@ -42,7 +51,10 @@
 @property (nonatomic, readonly, strong) NSMutableDictionary* pluginObjects;
 @property (nonatomic, readonly, strong) NSDictionary* pluginsMap;
 @property (nonatomic, readonly, strong) NSDictionary* settings;
+<<<<<<< HEAD
 @property (nonatomic, readonly, strong) NSXMLParser* configParser;
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @property (nonatomic, readonly, strong) CDVWhitelist* whitelist; // readonly for public
 @property (nonatomic, readonly, assign) BOOL loadFromString;
 @property (nonatomic, readwrite, copy)NSString * invokeString CDV_DEPRECATED(2.0, "Use window.handleOpenURL(url instead. It is called when the app is launched through a custom scheme url.");
@@ -55,11 +67,17 @@
 @property (nonatomic, readwrite, copy) NSString* startPage;
 @property (nonatomic, readonly, strong) CDVCommandQueue* commandQueue;
 @property (nonatomic, readonly, strong) CDVCommandDelegateImpl* commandDelegate;
+<<<<<<< HEAD
 @property (nonatomic, readonly) NSString* userAgent;
 
 + (NSDictionary*)getBundlePlist:(NSString*)plistName;
 + (NSString*)applicationDocumentsDirectory;
 + (NSString*)originalUserAgent;
+=======
+
++ (NSDictionary*)getBundlePlist:(NSString*)plistName;
++ (NSString*)applicationDocumentsDirectory;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 - (void)printMultitaskingInfo;
 - (void)createGapView;
@@ -74,6 +92,9 @@
 - (id)getCommandInstance:(NSString*)pluginName;
 - (void)registerPlugin:(CDVPlugin*)plugin withClassName:(NSString*)className;
 
+<<<<<<< HEAD
 - (BOOL)URLisAllowed:(NSURL*)url;
 
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @end

@@ -84,6 +84,7 @@
     }
 }
 
+<<<<<<< HEAD
 - (id)argumentAtIndex:(NSUInteger)index
 {
     return [self argumentAtIndex:index withDefault:nil];
@@ -109,4 +110,6 @@
     return ret;
 }
 
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @end

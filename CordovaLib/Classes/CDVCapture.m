@@ -251,7 +251,11 @@
         // iOS 4.0
         if ([pickerController respondsToSelector:@selector(cameraCaptureMode)]) {
             pickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+<<<<<<< HEAD
             // pickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
+=======
+            pickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             // pickerController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
             // pickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
         }
@@ -383,6 +387,7 @@
             AVURLAsset* movieAsset = [[AVURLAsset alloc] initWithURL:movieURL options:nil];
             CMTime duration = [movieAsset duration];
             [formatData setObject:[NSNumber numberWithFloat:CMTimeGetSeconds(duration)]  forKey:kW3CMediaFormatDuration];
+<<<<<<< HEAD
 
             NSArray* allVideoTracks = [movieAsset tracksWithMediaType:AVMediaTypeVideo];
             if ([allVideoTracks count] > 0) {
@@ -397,6 +402,14 @@
             } else {
                 NSLog(@"No video tracks found for %@", fullPath);
             }
+=======
+            CGSize size = [movieAsset naturalSize];
+            [formatData setObject:[NSNumber numberWithFloat:size.height] forKey:kW3CMediaFormatHeight];
+            [formatData setObject:[NSNumber numberWithFloat:size.width] forKey:kW3CMediaFormatWidth];
+            // not sure how to get codecs or bitrate???
+            // AVMetadataItem
+            // AudioFile
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         } else if ([mimeType rangeOfString:@"audio/"].location != NSNotFound) {
             if (NSClassFromString(@"AVAudioPlayer") != nil) {
                 NSURL* fileURL = [NSURL fileURLWithPath:fullPath];
@@ -529,12 +542,20 @@
 @implementation CDVAudioNavigationController
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+<<<<<<< HEAD
     - (NSUInteger)supportedInterfaceOrientations
     {
         // delegate to CVDAudioRecorderViewController
         return [self.topViewController supportedInterfaceOrientations];
     }
 
+=======
+- (NSUInteger)supportedInterfaceOrientations
+{
+    // delegate to CVDAudioRecorderViewController
+    return [self.topViewController supportedInterfaceOrientations];
+}
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 #endif
 
 @end
@@ -694,6 +715,7 @@
 }
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 60000
+<<<<<<< HEAD
     - (NSUInteger)supportedInterfaceOrientations
     {
         NSUInteger orientation = UIInterfaceOrientationMaskPortrait; // must support portrait
@@ -703,6 +725,16 @@
         return orientation;
     }
 
+=======
+- (NSUInteger)supportedInterfaceOrientations
+{
+    NSUInteger orientation = UIInterfaceOrientationMaskPortrait; // must support portrait
+    NSUInteger supported = [captureCommand.viewController supportedInterfaceOrientations];
+
+    orientation = orientation | (supported & UIInterfaceOrientationMaskPortraitUpsideDown);
+    return orientation;
+}
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 #endif
 
 - (void)viewDidUnload

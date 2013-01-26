@@ -27,7 +27,11 @@
 
 - (NSString*)pathForResource:(NSString*)resourcepath;
 - (id)getCommandInstance:(NSString*)pluginName;
+<<<<<<< HEAD
 - (void)registerPlugin:(CDVPlugin*)plugin withClassName:(NSString*)className CDV_DEPRECATED(2.2, "Use CDVViewController to register plugins, or use config.xml.");
+=======
+- (void)registerPlugin:(CDVPlugin*)plugin withClassName:(NSString*)className CDV_DEPRECATED(2.2, "Use CDVViewController to register plugins, or use Cordova.plist.");
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 // Plugins should not be using this interface to call other plugins since it
 // will result in bogus callbacks being made.

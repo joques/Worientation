@@ -283,7 +283,11 @@
             // bug in AVAudioPlayer when playing downloaded data in NSData - we have to download the file and play from disk
             CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
             CFStringRef uuidString = CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+<<<<<<< HEAD
             NSString* filePath = [NSString stringWithFormat:@"%@/%@", [NSTemporaryDirectory ()stringByStandardizingPath], uuidString];
+=======
+            NSString* filePath = [NSString stringWithFormat:@"%@/%@.mp3", [NSTemporaryDirectory ()stringByStandardizingPath], uuidString];
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             CFRelease(uuidString);
             CFRelease(uuidRef);
 
@@ -355,13 +359,22 @@
     CDVAudioFile* audioFile = [[self soundCache] objectForKey:mediaId];
     double position = [[command.arguments objectAtIndex:1] doubleValue];
 
+<<<<<<< HEAD
     if ((audioFile != nil) && (audioFile.player != nil)) {
+=======
+    if ((audioFile != nil) && (audioFile.player != nil) && position) {
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         double posInSeconds = position / 1000;
         audioFile.player.currentTime = posInSeconds;
         NSString* jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%f);", @"cordova.require('cordova/plugin/Media').onStatus", mediaId, MEDIA_POSITION, posInSeconds];
 
         [self.commandDelegate evalJs:jsString];
     }
+<<<<<<< HEAD
+=======
+
+    return;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 }
 
 - (void)release:(CDVInvokedUrlCommand*)command
@@ -438,6 +451,7 @@
         // create a new recorder for each start record
         audioFile.recorder = [[CDVAudioRecorder alloc] initWithURL:audioFile.resourceURL settings:nil error:&error];
 
+<<<<<<< HEAD
         bool recordingSuccess = NO;
         if (error == nil) {
             audioFile.recorder.delegate = self;
@@ -455,11 +469,26 @@
             } else {
                 errorMsg = @"Failed to start recording using AVAudioRecorder";
             }
+=======
+        if (error != nil) {
+            errorMsg = [NSString stringWithFormat:@"Failed to initialize AVAudioRecorder: %@\n", [error  localizedFailureReason]];
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             audioFile.recorder = nil;
             if (self.avSession) {
                 [self.avSession setActive:NO error:nil];
             }
+<<<<<<< HEAD
             jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('cordova/plugin/Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_ABORTED message:errorMsg]];
+=======
+            // jsString = [NSString stringWithFormat: @"%@(\"%@\",%d,%d);", @"cordova.require('cordova/plugin/Media').onStatus", mediaId, MEDIA_ERROR, MEDIA_ERR_ABORTED];
+            jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%@);", @"cordova.require('cordova/plugin/Media').onStatus", mediaId, MEDIA_ERROR, [self createMediaErrorWithCode:MEDIA_ERR_ABORTED message:errorMsg]];
+        } else {
+            audioFile.recorder.delegate = self;
+            audioFile.recorder.mediaId = mediaId;
+            [audioFile.recorder record];
+            NSLog(@"Started recording audio sample '%@'", audioFile.resourcePath);
+            jsString = [NSString stringWithFormat:@"%@(\"%@\",%d,%d);", @"cordova.require('cordova/plugin/Media').onStatus", mediaId, MEDIA_STATE, MEDIA_RUNNING];
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         }
     } else {
         // file does not exist

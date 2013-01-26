@@ -21,7 +21,10 @@
 #import "CDV.h"
 #import "CDVCommandQueue.h"
 #import "CDVViewController.h"
+<<<<<<< HEAD
 #import "CDVCommandDelegateImpl.h"
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 @implementation CDVCommandQueue
 
@@ -121,10 +124,17 @@
     }
 
     // Fetch an instance of this class
+<<<<<<< HEAD
     CDVPlugin* obj = [_viewController.commandDelegate getCommandInstance:command.className];
 
     if (!([obj isKindOfClass:[CDVPlugin class]])) {
         NSLog(@"ERROR: Plugin '%@' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.", command.className);
+=======
+    CDVPlugin* obj = [_viewController getCommandInstance:command.className];
+
+    if (!([obj isKindOfClass:[CDVPlugin class]])) {
+        NSLog(@"ERROR: Plugin '%@' not found, or is not a CDVPlugin. Check your plugin mapping in Cordova.plist.", command.className);
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         return NO;
     }
     BOOL retVal = YES;

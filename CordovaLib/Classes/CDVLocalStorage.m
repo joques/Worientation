@@ -23,7 +23,11 @@
 @interface CDVLocalStorage ()
 
 @property (nonatomic, readwrite, strong) NSMutableArray* backupInfo;  // array of CDVBackupInfo objects
+<<<<<<< HEAD
 @property (nonatomic, readwrite, weak) id <UIWebViewDelegate> webviewDelegate;
+=======
+@property (nonatomic, readwrite, unsafe_unretained) id <UIWebViewDelegate> webviewDelegate;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 @end
 
@@ -396,7 +400,11 @@
                 backgroundTaskID = UIBackgroundTaskInvalid;
                 NSLog (@"Background task to backup WebSQL/LocalStorage expired.");
             }];
+<<<<<<< HEAD
         CDVLocalStorage __weak* weakSelf = self;
+=======
+        CDVLocalStorage __unsafe_unretained* weakSelf = self;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         [self.commandDelegate runInBackground:^{
                 [weakSelf backup:nil];
 

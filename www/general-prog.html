@@ -21,7 +21,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
+<<<<<<< HEAD
         <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+=======
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
@@ -36,7 +40,11 @@
                 </header>
             </div>
             <div class="container clearfix">
+<<<<<<< HEAD
                 <div class="well hidden-tablet hidden-desktop">
+=======
+                <div class="well hidden-tablet">
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                     <a class="btn btn-link btn-mini pull-left" href="orientation-prog.html">Orientation</a>
                     <a class="btn btn-link btn-mini" href="map.html">Access Map</a>
                     <a class="btn btn-link btn-mini pull-right" href="index.html">Home</a>
@@ -106,7 +114,11 @@
                                 <tr class="info"><td>11:40-13:00</td><td><a class="progevt" rel="popover" data-content="Take this opportunity to stretch your legs and explore the campus. Orientation assistants will lead students on a brief tour of WITS to allow students to familiarise themselves with the campus.">Campus Tours</a></td><td>Depart from Wits Stadium</td></tr>
                                 <tr class="success"><td>15:00-18:00</td><td><a class="progevt" rel="popover" data-content="Join us for some amazing/interesting brews at the Wits Beer Garden. Drink responsibly and reasonably.">WITS Beer Garden</a></td><td>Library Lawns</td></tr>
                             </tbody></table></div>
+<<<<<<< HEAD
                             <div style="padding-bottom: 126px;"><table class="table table-hover table-bordered"><caption>Friday, 8 February 2013</caption><thead><th>Time</th><th>Event</th><th>Venue</th></thead><tbody>
+=======
+                            <div><table class="table table-hover table-bordered"><caption>Friday, 8 February 2013</caption><thead><th>Time</th><th>Event</th><th>Venue</th></thead><tbody>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                                 <tr class="info"><td>09:00-12:00</td><td><a class="progevt" rel="popover" data-content="This is a basic computer course. The course is divided into 3 sessions and students are required to attend all sessions.">Basic Computer Skills</a></td><td>FNB Computer Lab</td></tr>
                                 <tr class="success"><td>09:00-09:20</td><td><a class="progevt" rel="popover" data-content="Youíve heard that university is different from high school and that the classes are more demanding, but do you know what that really means? Come to a talk with professional learning specialists about what to expect at WITS and how to prepare effectively.">Transitioning from High School to University</a></td><td>Wits Science Stadium Auditorium 4</td></tr>
                                 <tr class="info"><td>09:20-09:40</td><td><a class="progevt" rel="popover" data-content="Learn about the role of CCDU in assisting students achieve their academic, personal and professional goals.">CCDU</a></td><td>Wits Science Stadium Auditorium 4</td></tr>
@@ -130,21 +142,36 @@
                 <img src="img/wits-logo.png" width=30 height=30/>
             </div>
         </footer>
+<<<<<<< HEAD
         <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
         <script type="text/javascript" src="js/iscroll.js"></script>
         <script type="text/javascript" src="js/core/jquery.js"></script>
+=======
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="iscroll.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             var scrollObj;
             function loadScroll() {
+<<<<<<< HEAD
                 // document.addEventListener('touchmove', function(e){ scrollObj.refresh(); e.preventDefault(); });
                 scrollObj = new iScroll('genfacprog');
             }
             document.addEventListener('DOMContentLoaded', loadScroll);
             $(function() { // wait for the DOM to be ready
               $("[rel=popover]").popover({placement: 'bottom', offset: 10});
+=======
+                document.addEventListener('touchmove', function(e){ scrollObj.refresh(); e.preventDefault(); });
+                scrollObj = new iScroll('genfacprog', {checkDOMChanges: false});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+            $(function() { // wait for the DOM to be ready
+              $("[rel=popover]").popover({placement: 'top', offset: 10});
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
               });
             </script>
     </body>

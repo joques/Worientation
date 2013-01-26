@@ -22,7 +22,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport"
+<<<<<<< HEAD
         content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+=======
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <link rel="stylesheet" type="text/css"
         href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css"
@@ -31,6 +35,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
         <link rel="stylesheet" type="text/css" href="css/map.css" />
         <title>Orientation</title>
+<<<<<<< HEAD
         <script type="text/javascript" src="js/iscroll.js"></script>
     </head>
     <body>
@@ -38,6 +43,15 @@
             <div id="header2" class="container">
                 <header class="red-or">
                     <h1 style="color: #ffffff; font-size: 20px;"><div id="maptitle">Map - Braamfontein Campus</div></h1>
+=======
+        <script type="text/javascript" src="iscroll.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="header" class="container">
+                <header class="red-or">
+                    <h1 style="color: #ffffff; font-size: 20px;"><div id="maptitle">Map</div></h1>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                 </header>
             </div>
             
@@ -53,7 +67,11 @@
                         </div>
             </div>
             <div class="push"></div>
+<<<<<<< HEAD
          </div>
+=======
+        </div>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         
         <footer id="footer" class="footer pagination-centered">
             <div class="container">
@@ -65,10 +83,17 @@
 				height=30 onclick="makePopup()" />
             </div>
         </footer>
+<<<<<<< HEAD
        
         <script type="text/javascript" src="js/core/jquery.js"></script>
         <script type="text/javascript" src="js/core/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+=======
+        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             var witsgpslocation;
@@ -103,10 +128,17 @@
                     gpsmulty = -123575.9494;
                 }
                 if (map=="Parktown"){
+<<<<<<< HEAD
                     gpstop = -26.17466066;
                     gpsleft = 28.03104238;
                     gpsmultx = 114213.9944;
                     gpsmulty = -125933.8314;
+=======
+                    gpstop = -26.178221;
+                    gpsleft = 28.034329;
+                    gpsmultx = 113941.6984;
+                    gpsmulty = -123575.9494;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                 }
             }
             
@@ -130,6 +162,7 @@
                                        }
                                        });
             }
+<<<<<<< HEAD
 
           function clearFilter(what) {
                 $('#'+what+' li').each(function(i, li) {
@@ -137,6 +170,9 @@
                                        $product.show();
                                        });
             }            
+=======
+            
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             function buildPopup() {
                 var diagString = '<div id="myDialog"><div id="listwrapper" style="height:400px"><div id="listscroller" style="position:relative;width:95%; margin-left:auto; margin-right:auto"><ul id="theList">';
                 for (k in witsgpslocation){
@@ -145,7 +181,11 @@
                 diagString+='</ul></span></div></div>';
                 diag = $(diagString);
                 diag.dialog({
+<<<<<<< HEAD
                             title : "Filter : <input type='text' id='filterbox' onkeyup=\"filter(this,'theList')\"/>",
+=======
+                            title : "Filter : <input type='text' onkeyup=\"filter(this,'theList')\"/>",
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                             draggable : false,
                             autoOpen : false,
                             modal : true,
@@ -153,19 +193,31 @@
                             marginLeft : 0,
                             resizable:false,
                             });
+<<<<<<< HEAD
                /* listScroll = new iScroll('myDialog', {
                                          vScroll : true,
                                          hScroll : true,
                                          zoom : true
                                          });*/
+=======
+                listScroll = new iScroll('myDialog', {
+                                         vScroll : true,
+                                         hScroll : true,
+                                         zoom : true
+                                         });
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             }
             
             function makePopup() {
                 diag.dialog("open");
+<<<<<<< HEAD
 				$('#filterbox').val('');
 				clearFilter('theList');
                 //listScroll.refresh();
 				
+=======
+                listScroll.refresh();
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             }
             
             function updateCurrentLocation(vert, horiz) {
@@ -209,7 +261,11 @@
             }
             
             function displayError(error) {
+<<<<<<< HEAD
                /* switch (error.code) {
+=======
+                switch (error.code) {
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                     case error.PERMISSION_DENIED:
                     alert("Permission was denied");
                     break;
@@ -225,11 +281,16 @@
                     default:
                     alert("Who knows what happened...");
                     break;
+<<<<<<< HEAD
                 }*/
             }
 			
   
 
+=======
+                }
+            }
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             
             function loadScroll() {
               //  alert("Stuff");
@@ -243,7 +304,11 @@
               witsgpslocation = new Array();
               
               witsgpslocation["Braamfontein Campus"] = new Array(1540, 1258, "Braamfontein");
+<<<<<<< HEAD
               witsgpslocation["Parktown Campus"] = new Array(740, 1058, "Parktown");
+=======
+              witsgpslocation["Parktown Campus"] = new Array(1540, 1258, "Parktown");
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
               witsgpslocation["Alumni House"] = new Array(988,403,"Braamfontein");
               witsgpslocation["Art Museum"] = new Array(1836,1254,"Braamfontein");
               witsgpslocation["Barnato Hall"] = new Array(895,523,"Braamfontein");
@@ -346,6 +411,7 @@
               var options = {frequency:3000, enableHighAccuracy:true};
               watchID = navigator.geolocation.watchPosition(displayLocation,
                                                             displayError, options);
+<<<<<<< HEAD
 
 			  var e = document.getElementById("mapwrapper");
 			  var h = app.getHeight() - app.findPosY(e) - $("#footer").height();
@@ -356,6 +422,28 @@
               buildPopup();
               mapWidth = winW;
               mapHeight = h;
+=======
+              
+              if (document.body && document.body.offsetWidth) {
+              winW = document.body.offsetWidth;
+              winH = document.body.offsetHeight;
+              }
+              if (document.compatMode == 'CSS1Compat' && document.documentElement
+                  && document.documentElement.offsetWidth) {
+              winW = document.documentElement.offsetWidth;
+              winH = document.documentElement.offsetHeight;
+              }
+              if (window.innerWidth && window.innerHeight) {
+              winW = window.innerWidth;
+              winH = window.innerHeight;
+              }
+              var h = winH - $("#header").height() - $("#footer").height();
+              //$("#wrapper").height(h);
+              buildPopup();
+              mapWidth = winW;
+              mapHeight = h;
+              
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
               myScroll.scrollTo(-1286,-992);
               if (document.URL.indexOf("#")>0){
               setMapPlace(document.URL.substring(document.URL.indexOf("#")+1));

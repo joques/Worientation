@@ -59,10 +59,13 @@
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onResume) name:UIApplicationWillEnterForegroundNotification object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOrientationWillChange) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOrientationDidChange) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+<<<<<<< HEAD
          
          // Added in 2.3.0+
          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveLocalNotification:) name:CDVLocalNotification object:nil]; 
          
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
          */
     }
     return self;
@@ -139,10 +142,13 @@
     return @"";
 }
 
+<<<<<<< HEAD
 // default implementation does nothing, ideally, we are not registered for notification if we aren't going to do anything.
 //- (void)didReceiveLocalNotification:(NSNotification *)notification
 //{    
 //    // UILocalNotification* localNotification = [notification object]; // get the payload as a LocalNotification
 //}
 
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @end

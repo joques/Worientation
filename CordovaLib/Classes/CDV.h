@@ -46,8 +46,11 @@
 #import "CDVSplashScreen.h"
 #import "CDVWhitelist.h"
 #import "CDVLocalStorage.h"
+<<<<<<< HEAD
 #import "CDVInAppBrowser.h"
 #import "CDVScreenOrientationDelegate.h"
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 #import "NSArray+Comparisons.h"
 #import "NSData+Base64.h"

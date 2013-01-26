@@ -6,6 +6,7 @@ html, body {
     height: 100%;
 }
 
+<<<<<<< HEAD
 /**
  *
  * Horizontal Scrollbar
@@ -72,11 +73,17 @@ html, body {
 	
 }
 
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 .wrap {
     min-height: 100%;
     height: auto !important;
     margin: 0 auto -80px;
+<<<<<<< HEAD
     overflow-y: hidden;
+=======
+    overflow-y: scroll;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 }
 
 .push {
@@ -277,6 +284,7 @@ html, body {
 }
 
 #facprog {
+<<<<<<< HEAD
     position: relative;
     padding-left: 4%;
     padding-right: 4%;
@@ -338,6 +346,105 @@ html, body {
     padding-right: 4%;
     border-width: 0;
     overflow-y: scroll;}
+=======
+    position: absolute;
+    top: 362px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#hscfacprog{
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#scfacprog{
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#spfacprog{
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#comfacprog{
+    position: absolute;
+    top: 347px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#engfacprog{
+    position: absolute;
+    top: 347px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#humfacprog{
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#genfacprog {
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#intprog {
+    position: absolute;
+    top: 307px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 
 #pscroller {
     position: relative;
@@ -386,7 +493,11 @@ html, body {
 .footer {
     padding-left: 0;
     padding-right: 0;
+<<<<<<< HEAD
     height: 70px;
+=======
+    height: 80px;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
     border-top: 1px solid #e5e5e5;
 }
 
@@ -399,12 +510,26 @@ html, body {
 /* responsive */
 
 /* Portrait tablet to landscape */
+<<<<<<< HEAD
 @media (min-width: 768px) and (max-width: 1024px) {
 	
 }
   
 /* Landscape phones and down */
 @media (max-width: 767px) {
+=======
+@media (min-width: 768px) {
+
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
   /* Remove padding above jumbotron */
   body {
     padding-top: 0;
@@ -458,9 +583,113 @@ html, body {
     font-size: 20px;
   }
     
+<<<<<<< HEAD
 
 .table td {
  font-size: 14px;
+=======
+  #facprog {
+    position: absolute;
+    top: 145px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 85%;
+    border-width: 0;
+    overflow-y: scroll;
+ }
+ 
+ #hscfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#scfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#spfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#comfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#engfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#humfacprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#genfacprog {
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 86.2%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+#intprog{
+    position: absolute;
+    top: 75px;
+    bottom: 66px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 80%;
+    border-width: 0;
+    overflow-y: scroll;
+}
+
+.table td {
+ font-size: 11px;
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 }
 
 }

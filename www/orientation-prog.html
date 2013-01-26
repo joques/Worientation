@@ -21,7 +21,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
+<<<<<<< HEAD
         <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+=======
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
@@ -52,7 +56,11 @@
                                 <a href="science-prog.html">Science</a>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <a href="healthsc-prog.html">Health Sciences</a>
+=======
+                                <a href="healthsc-prog.html">Health Science</a>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
                             </li>
                             <li>
                                 <a href="humanities-prog.html">Humanities</a>
@@ -78,13 +86,28 @@
                 <img src="img/wits-logo.png" width=30 height=30/>
             </div>
         </footer>
+<<<<<<< HEAD
         <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
         <script type="text/javascript" src="js/iscroll.js"></script>
         <script type="text/javascript" src="js/core/jquery.js"></script>
+=======
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="iscroll.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
         <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
         <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+<<<<<<< HEAD
+=======
+            var scrollObj;
+            function loadScroll() {
+                document.addEventListener('touchmove', function(e){ scrollObj.refresh(); e.preventDefault(); });
+                scrollObj = new iScroll('facprog', {checkDOMChanges: false});
+            }
+            document.addEventListener('DOMContentLoaded', loadScroll);
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
             $(function() { // wait for the DOM to be ready
               $("[rel=popover]").popover({placement: 'bottom', offset: 10});
               });

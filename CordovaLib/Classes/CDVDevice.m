@@ -17,6 +17,7 @@
  under the License.
  */
 
+<<<<<<< HEAD
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
@@ -39,6 +40,10 @@
 
 @end
 
+=======
+#import "CDV.h"
+
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 @interface CDVDevice () {}
 @end
 
@@ -70,11 +75,18 @@
     UIDevice* device = [UIDevice currentDevice];
     NSMutableDictionary* devProps = [NSMutableDictionary dictionaryWithCapacity:4];
 
+<<<<<<< HEAD
     [devProps setObject:[device modelVersion] forKey:@"model"];
     [devProps setObject:@"iOS" forKey:@"platform"];
     [devProps setObject:[device systemVersion] forKey:@"version"];
     [devProps setObject:[device uniqueAppInstanceIdentifier] forKey:@"uuid"];
     [devProps setObject:[device model] forKey:@"name"];
+=======
+    [devProps setObject:[device model] forKey:@"platform"];
+    [devProps setObject:[device systemVersion] forKey:@"version"];
+    [devProps setObject:[device uniqueAppInstanceIdentifier] forKey:@"uuid"];
+    [devProps setObject:[device name] forKey:@"name"];
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
     [devProps setObject:[[self class] cordovaVersion] forKey:@"cordova"];
 
     NSDictionary* devReturn = [NSDictionary dictionaryWithDictionary:devProps];

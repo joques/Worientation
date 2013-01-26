@@ -34,7 +34,10 @@
 #define __CORDOVA_2_0_0 20000
 #define __CORDOVA_2_1_0 20100
 #define __CORDOVA_2_2_0 20200
+<<<<<<< HEAD
 #define __CORDOVA_2_3_0 20300
+=======
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 #define __CORDOVA_NA 99999      /* not available */
 
 /*
@@ -45,7 +48,11 @@
  #endif
  */
 #ifndef CORDOVA_VERSION_MIN_REQUIRED
+<<<<<<< HEAD
     #define CORDOVA_VERSION_MIN_REQUIRED __CORDOVA_2_3_0
+=======
+    #define CORDOVA_VERSION_MIN_REQUIRED __CORDOVA_2_2_0
+>>>>>>> defda03062e021e4b58df80a6af4bff378b61655
 #endif
 
 /*
