@@ -21,10 +21,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=4, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" type="text/css" href="css/orientation.css" />
+        <!--link rel="stylesheet" type="text/css" href="css/index.css" /-->
         <title>Orientation</title>
     </head>
     <body>
@@ -165,6 +166,7 @@
                                                     </label>
                                         </div>
                                     </div>
+
                                     <div class="control-group">
 										<button class="btn btn-info pull-left" type="submit" name="part1But" id="survey-prev-1">Prev</button>
                                         <button class="btn btn-danger pull-right" type="submit" name="part2But" id="survey-submit-2">Next</button>
@@ -242,6 +244,7 @@
                                                     </label>
                                         </div>
                                     </div>
+                                    
                                     <div class="control-group">
 										<button class="btn btn-info pull-left" type="submit" name="part1But" id="survey-prev-2">Prev</button>
                                         <button class="btn btn-danger pull-right" type="submit" name="part3But" id="survey-submit-3">Next</button>
@@ -307,6 +310,7 @@
                                                     </label>
                                         </div>
                                     </div>
+
                                     <div class="control-group">
 										<button class="btn btn-info pull-left" type="submit" name="part1But" id="survey-prev-3">Prev</button>
                                         <button class="btn btn-danger pull-right" type="submit" name="part4But" id="survey-submit-4">Next</button>
@@ -438,7 +442,7 @@
                 <img src="img/wits-logo.png" width=30 height=30/>
             </div>
         </footer>
-        <script type="text/javascript" src="js/core/cordova-2.3.0.js"></script>
+        <script type="text/javascript" src="js/core/cordova-2.2.0.js"></script>
         <script type="text/javascript" src="js/core/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
@@ -474,6 +478,7 @@
                                           $('#survey-step-4').slideUp();
                                           $('#survey-step-5').slideDown();
                                           });
+			  
 				$('#survey-prev-3').click(function(){
 					$('#survey-prog').css('width', '28.56%');
 					$('#survey-step-3').slideDown();
@@ -509,25 +514,25 @@
                                           $('#survey-step-7').slideDown();
                                           });
               $('#survey-submit-7').click(function(){
-                                          $('#survey-prog').css('width', '100%');
-                                          window.localStorage.setItem("survey", "completed");
-											var surveyData = $('#wsurvey').serialize();
-											var surveyee = window.localStorage.getItem("studID-4-survey");
-											var extendedSurveyData = surveyData + '&amp;studnum=' + surveyee;
-											window.location.replace("index.html");
-											$.ajax({
-												url: 'http://hisdmv1.cs.wits.ac.za:8089/WitsOrientation/Surveyjsonp/',
-												data: extendedSurveyData,
-												dataType: 'jsonp',
-												crossDomain: true,
-												cache: false,
-												timeout: 5000,
-												complete: function(){window.location.replace("index.html");},
-												error: function(){console.log("An error occurred"); window.localStorage.removeItem("login");},
-												success: function(data, success) {console.log("success! wait for your result"); console.log(data); window.localStorage.setItem("survey", "completed");}
-											});											
-                                        });
-              });
+                  $('#survey-prog').css('width', '100%');
+                  window.localStorage.setItem("survey", "completed");
+					var surveyData = $('#wsurvey').serialize();
+					var surveyee = window.localStorage.getItem("studID-4-survey");
+					var extendedSurveyData = 'studnum=' + surveyee+'&amp;'+surveyData;
+					window.location.replace("index.html");
+					$.ajax({
+						url: 'http://hisdmv1.cs.wits.ac.za:8089/WitsOrientation/Surveyjsonp/',
+						data: extendedSurveyData,
+						dataType: 'jsonp',
+						crossDomain: true,
+						cache: false,
+						timeout: 5000,
+						complete: function(){window.location.replace("index.html");},
+						error: function(){console.log("An error occurred"); window.localStorage.removeItem("login");},
+						success: function(data, success) {console.log("success! wait for your result"); console.log(data); window.localStorage.setItem("survey", "completed");}
+					});											
+                });
+});
             </script>
     </body>
 </html>
